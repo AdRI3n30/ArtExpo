@@ -1,5 +1,5 @@
 body{
-    background-image: url(/img/fond.jpg);
+    background-image: url(/img/fond2.jpg);
     background-size: cover;
    }
    #container{
@@ -59,7 +59,7 @@ body{
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;
-    margin-left: 2%;
+    margin-left: 86%;
     }
 
     .butlogo:hover{

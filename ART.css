@@ -217,7 +217,7 @@
   font-size: 190%;
   font-weight: 600;
   line-height: normal;
-  margin-left: 68%;
+  margin-left: 63%;
   margin-top: 1.5%;
   min-height: 60px;
   min-width: 0;
@@ -283,7 +283,6 @@
   font-size: 130%;
   font-weight: 600;
   line-height: normal;
-  margin: 0;
   min-height: 60px;
   min-width: 0;
   outline: none;
@@ -294,6 +293,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 100%;
+  margin-left: -90%;
   will-change: transform;
   text-decoration: none;
   background: linear-gradient(to top, #FFD700 0%, #FFD700 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
@@ -317,12 +317,56 @@
 }
 
 
+.Connexion{
+  background-color: #000000;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 130%;
+  font-weight: 600;
+  line-height: normal;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+  text-decoration: none;
+  background: linear-gradient(to top, #FFD700 0%, #FFD700 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+  transition: background-size .5s;
+}
 
-.page-d-accueil .text-wrapper-6 {
+.Connexion:disabled {
+  pointer-events: none;
+}
+
+.Connexion:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+  color: #FFD700;
+  background-size: 100% 100% ;
+}
+
+.Connexion:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+
+.text-wrapper-6 {
   position: absolute;
-  width: 139px;
-  top: 11px;
-  left: 15px;
+  width: 180px;
+  top: 30px;
+  left: 89%;
   font-family: "Inter", Helvetica;
   font-weight: 600;
   font-style: italic;
@@ -382,7 +426,7 @@
   background-color: black;
   max-width: 23.80%;
   border-radius: 36px;
-  margin-left: 63%;
+  margin-left: 58%;
   margin-top: -6%;
   transition: bottom 0.5 ease 0 ;
 }

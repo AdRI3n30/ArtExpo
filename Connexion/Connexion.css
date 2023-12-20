@@ -72,3 +72,11 @@ body{
     .logo:hover{
         filter: invert(55%) sepia(33%) saturate(3916%) hue-rotate(355deg) brightness(105%) contrast(109%);
     }
+
+    .compte{
+        color: black;
+        font-size: large;
+    }
+    .compte:hover{
+        color:#FFD700;
+    }

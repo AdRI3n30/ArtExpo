@@ -218,7 +218,7 @@
   font-weight: 600;
   line-height: normal;
   margin-left: 68%;
-  margin-top: 2%;
+  margin-top: 1.5%;
   min-height: 60px;
   min-width: 0;
   outline: none;
@@ -380,9 +380,9 @@
 .sidenav{
   overflow: hidden;
   background-color: black;
-  max-width: 29.74%;
+  max-width: 23.80%;
   border-radius: 36px;
-  margin-left: 57%;
+  margin-left: 63%;
   margin-top: -6%;
   transition: bottom 0.5 ease 0 ;
 }

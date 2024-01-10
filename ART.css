@@ -67,8 +67,8 @@
 
 .page-d-accueil .overlap-2 {
   position: absolute;
-  width: 305px;
-  height: 112px;
+  width: 20%;
+  height: 112%;
   top: 70%;
   left: 40%;
 }
@@ -149,6 +149,7 @@
   font-weight: 600;
   line-height: normal;
   margin: -3.5%;
+  margin-top: %;
   margin-left: -60%;
   min-height: 60px;
   min-width: 0;
@@ -211,7 +212,7 @@
   font-weight: 600;
   line-height: normal;
   margin-left:60%;
-  margin-top: 1.7%;
+  margin-top: 1.8%;
   min-height: 60px;
   min-width: 0;
   outline: none;
@@ -326,6 +327,7 @@
   min-height: 60px;
   min-width: 0;
   margin-left: -30%;
+  margin-top: 0%;
   outline: none;
   text-align: center;
   text-decoration: none;
@@ -419,9 +421,9 @@
 .sidenav{
   overflow: hidden;
   background-color: black;
-  max-width: 23.80%;
+  max-width: 30%;
   border-radius: 36px;
-  margin-left: 58%;
+  margin-left: 51.2%;
   margin-top: -6%;
   transition: bottom 0.5 ease 0 ;
 }
@@ -463,7 +465,7 @@
 
 .sidenav2{
   margin-left: -100%;
-  margin-top: 1000000%;
+  margin-top: 100%;
   background-color: rgba(0, 0, 0, 0.6); /* Utilisation de RGBA pour spécifier l'opacité */
   color: white; /* Couleur du texte */
   font-style: italic;
@@ -474,7 +476,7 @@
 }
 
 .sidenav2.active {
-  margin-top: 11%;
+  margin-top: 8%;
   margin-left: 8%;
 }
 

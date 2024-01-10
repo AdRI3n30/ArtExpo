@@ -4,6 +4,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "monsite_users";
+include('test.php');
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -20,10 +21,14 @@ $password = $_POST['password'];
 $sql = "SELECT * FROM users WHERE username='$username'";
 $result = $conn->query($sql);
 
+
+
+
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     if (password_verify($password, $row['password'])) {
         // Rediriger vers la racine du site
+        $login = true;
         header("Location: /");
         exit();
     } else {

@@ -1,3 +1,0 @@
-MySQL
-Utilisateur = root
-MPD = B1InfoYnov*

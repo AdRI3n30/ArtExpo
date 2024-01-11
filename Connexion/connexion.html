@@ -1,31 +1,38 @@
+<!DOCTYPE html>
 <html>
- <head>
- <meta charset="utf-8">
- <!-- importer le fichier de style -->
- <link rel="stylesheet" href="Connexion.css" media="screen" type="text/css" />
- </head>
- <body>
- <div class="overlap-3">
-    <a href="/ART.html"><button class="butlogo"> <img class="logo" src="/img/LOGO PAPILLON.webp" /> </button></a>
- </div>
- <div id="container">
- <!-- zone de connexion -->
- 
- <form action="verification.php" method="POST">
- <h1>Connexion</h1>
- 
- <label><b>Nom d'utilisateur</b></label>
- <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+   <head>
+      <meta charset="utf-8">
+      <!-- importer le fichier de style -->
+      <link rel="stylesheet" href="Connexion.css" media="screen" type="text/css" />
+   </head>
+   <body>
+      <div class="overlap-3">
+         <a href="/"><button class="butlogo"> <img class="logo" src="/img/LOGO PAPILLON.webp" /> </button></a>
+      </div>
+      <div id="container">
+      <!-- zone de connexion -->
+      
+         <form action="login.php" method="post" >
+            <h1>Connexion</h1>
+            
+            <label for="username"><b>Nom d'utilisateur</b></label>
+            <input type="text" placeholder="Entrer le nom d'utilisateur" id="username" name="username" required>
 
- <label><b>Mot de passe</b></label>
- <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+            <label for="password"><b>Mot de passe</b></label>
+            <input type="password" placeholder="Entrer le mot de passe" id="password" name="password" required>
 
+<<<<<<< HEAD
  <input type="submit" id='submit' value='LOGIN' >
 <p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
  
  <label><a href="/Inscription/inscription.html" class="compte"><b>Je n'ai pas de compte ?</b></a></label>
+=======
+            <input type="submit" id='submit' value='Login' >
+>>>>>>> e54b01873feca7715252d6193424dcddf31919a0
 
- </form>
- </div>
- </body>
+            <label><a href="/Inscription/inscription.html" class="compte"><b>Je n'ai pas de compte ?</b></a></label>
+
+         </form>
+      </div>
+   </body>  
 </html>

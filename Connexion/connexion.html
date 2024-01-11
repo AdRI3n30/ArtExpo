@@ -21,13 +21,8 @@
  <input type="password" placeholder="Entrer le mot de passe" name="password" required>
 
  <input type="submit" id='submit' value='LOGIN' >
- <?php
- if(isset($_GET['erreur'])){
- $err = $_GET['erreur'];
- if($err==1 || $err==2)
- echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
- }
- ?>
+<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+ 
  <label><a href="/Inscription/inscription.html" class="compte"><b>Je n'ai pas de compte ?</b></a></label>
 
  </form>

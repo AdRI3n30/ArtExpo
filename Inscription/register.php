@@ -34,15 +34,20 @@ $username = $_POST['username'];
 $email = $_POST['email'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hasher le mot de passe
 
+
+
+
 // Insérer les données dans la base de données
 $sql = "INSERT INTO users (firstname , lastname,username, email, password) VALUES ('$lastname','$firstname','$username', '$email', '$password')";
 
 if ($conn->query($sql) === TRUE) {
+    header("Location: /ART2/ART2.html");
     echo "Registration successful";
     // Rediriger vers une autre page après 2 secondes
     echo '<meta http-equiv="refresh" content="2;url=ART.html">';
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
+    
 }
 
 // Fermer la connexion à la base de données

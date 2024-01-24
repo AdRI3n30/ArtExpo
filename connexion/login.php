@@ -4,7 +4,8 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "monsite_users";
-include('test.php');
+$login = false;
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -22,14 +23,12 @@ $sql = "SELECT * FROM users WHERE username='$username'";
 $result = $conn->query($sql);
 
 
-
-
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     if (password_verify($password, $row['password'])) {
         // Rediriger vers la racine du site
         $login = true;
-        header("Location: /");
+        header("Location: /ART2/ART2.html");
         exit();
     } else {
         echo "Invalid password";

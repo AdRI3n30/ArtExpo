@@ -86,3 +86,58 @@ img#logog{
     text-decoration: underline;
     font-weight: 900;
 }
+
+
+.sidenav{
+    overflow: hidden;
+    background-color: black;
+    max-width: 49%;
+    border-radius: 36px;
+    margin-top: -20%;
+    transition: bottom 0.5 ease 0 ;
+  
+}
+  
+  .sidenav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidenav li {
+    float: left;
+  }
+  
+  .sidenav li a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    font-family: "Inter", Helvetica;
+    font-weight: 200;
+  }
+  
+  .sidenav li a:hover {
+    background-color:#FFD700;
+    color: black;
+  }
+  .sidenav.active {
+    margin-top: 0%;
+  }
+  .sidenav .close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+  }
+
+
+  .Catégories{
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+    font-size:medium;
+    margin-top: -1%;
+  }
+
+  

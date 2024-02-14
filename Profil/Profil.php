@@ -40,10 +40,71 @@
             <h1>Profil</h1>
         </div>
         <div class="rightside">
+        <?php
+            // Vérifier si l'utilisateur est connecté
+            session_start();
+            if(isset($_SESSION["user_id"])) {
+                // Récupérer l'ID de l'utilisateur depuis la session
+                $user_id = $_SESSION["user_id"];
+
+                // Connexion à la base de données
+                $servername = "localhost";
+                $username_mysql = "root"; // Nom d'utilisateur MySQL
+                $password_mysql = ""; // Mot de passe MySQL
+                $dbname = "monsite_users";
+
+                $conn = new mysqli($servername, $username_mysql, $password_mysql, $dbname);
+
+                // Vérifier la connexion
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Préparer et exécuter la requête SQL pour récupérer les informations de l'utilisateur
+                $stmt = $conn->prepare("SELECT firstname , lastname, username, email FROM users WHERE id = ?");
+                $stmt->bind_param("i", $user_id);
+
+                // Exécuter la requête
+                $stmt->execute();
+
+                // Récupérer le résultat de la requête
+                $result = $stmt->get_result();
+
+                // Vérifier si des résultats ont été trouvés
+                if ($result->num_rows > 0) {
+                    // Récupérer les données de l'utilisateur
+                    $row = $result->fetch_assoc();
+                    $username = $row['username'];
+                    $firstname = $row['firstname'];
+                    $lasttname = $row['lastname'];
+                    $email = $row['email'];
+
+                    // Afficher les informations de l'utilisateur
+                    echo "<p>Nom Utilisateur</p>";
+                    echo "<h2>$username</h2>";
+                    echo "<p>Prénom </p>";
+                    echo "<h2>$firstname</h2>";
+                    echo "<p>Nom </p>";
+                    echo "<h2>$lasttname</h2>";
+                    echo "<p>Mail</p>";
+                    echo "<h2>$email</h2>";
+                } else {
+                    // Aucune information trouvée pour cet ID d'utilisateur
+                    echo "Aucune information disponible pour cet utilisateur.";
+                }
+
+                // Fermer la connexion à la base de données
+                $stmt->close();
+                $conn->close();
+            } else {
+                // L'utilisateur n'est pas connecté
+                echo "Veuillez vous connecter pour afficher votre profil.";
+            }
+            ?>
         </div>
     </section>
-    
-    <div id="deco"><button id="btn-deco">Deconexion</button></div>
+
+    <div class="deco"><a href="../Deconnexion.php" class="btn-deco">Deconexion</button></a></div>
     
 </body>
 </html>

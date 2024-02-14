@@ -42,6 +42,7 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hasher le mo
 $sql = "INSERT INTO users (firstname , lastname,username, email, password) VALUES ('$lastname','$firstname','$username', '$email', '$password')";
 
 if ($conn->query($sql) === TRUE) {
+    $_SESSION["user_id"] = $row['id'];
     $_SESSION["login"]="True";
     header("Location: /");
     echo "Registration successful";

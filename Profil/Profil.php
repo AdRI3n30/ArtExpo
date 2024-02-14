@@ -42,6 +42,7 @@
         <div class="rightside">
         </div>
     </section>
+    
     <div id="deco"><button id="btn-deco">Deconexion</button></div>
     
 </body>

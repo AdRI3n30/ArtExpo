@@ -4,7 +4,8 @@ $servername = "localhost";
 $username_mysql = "root"; // Nom d'utilisateur MySQL
 $password_mysql = ""; // Mot de passe MySQL
 $dbname = "monsite_users";
-$login = false;
+session_start();
+
 
 // Vérifier si les données ont été soumises via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Créer une connexion avec le bon nom d'utilisateur et mot de passe
     $conn = new mysqli($servername, $username_mysql, $password_mysql, $dbname);
+
 
     // Vérifier la connexion
     if ($conn->connect_error) {
@@ -32,8 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             // Rediriger vers la racine du site
-            $login = true;
-            header("Location: /ART2/ART2.php");
+            $_SESSION["user_id"] = $row['id'];
+            $_SESSION["login"]="True";
+            header("Location: /");
             exit();
         } else {
             echo "Invalid password";

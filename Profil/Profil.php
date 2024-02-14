@@ -23,13 +23,15 @@
                 </ul>
             </div>
             <ul class="navbar">
-                <li><a href="../ART2/ART2.php">Accueil</a></li>
+                <li><a href="/">Accueil</a></li>
                 <li>
                     <a id="openBtn" href="#" class="open">
                     <button class="Catégories" role="button">Catégories</button>
                   </a>
                 </li>
                 <li><a href="../Catégorie/Contact/Contact.php">Contact</a></li>
+                 <div class="text-wrapper-6"><a href="/Deconnexion.php"><button class="Connexion" role="button">Déconnexion</button></a></div>;
+                
             </ul>
                 <a href="./Profil.php"><img id="pppetit" src="../img/pp.png" alt=""></a>
         </div>
@@ -40,14 +42,6 @@
             <h1>Profil</h1>
         </div>
         <div class="rightside">
-            <p>Nom Utilisateur</p>
-            <h2>Pierre</h2>
-            <p>Nom </p>
-            <h2>Pierre Ducop</h2>
-            <p>Mail</p>
-            <h2>Pierre.Ducop@ynov.com</h2>
-            <p>Bio</p>
-            <textarea cols="70" rows="10">Zone de texte!</textarea>
         </div>
     </section>
 </body>

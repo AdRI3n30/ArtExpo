@@ -4,6 +4,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "monsite_users";
+session_start();
 
 $conn = new mysqli($servername,$username, $password, $dbname);
 
@@ -41,7 +42,8 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hasher le mo
 $sql = "INSERT INTO users (firstname , lastname,username, email, password) VALUES ('$lastname','$firstname','$username', '$email', '$password')";
 
 if ($conn->query($sql) === TRUE) {
-    header("Location: /ART2/ART2.php");
+    $_SESSION["login"]="True";
+    header("Location: /");
     echo "Registration successful";
     // Rediriger vers une autre page après 2 secondes
     echo '<meta http-equiv="refresh" content="2;url=ART.html">';

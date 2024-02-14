@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -43,7 +46,13 @@
               <button class="Catégories" role="button">Catégories</button>
             </a>
             <div class="text-wrapper-5"><a href="/Catégorie/Contact/contact.php"><button class="Contact" role="button">Contact</button></a></div>
-            <div class="text-wrapper-6"><a href="/connexion/connexion.php"><button class="Connexion" role="button">Connexion</button></a></div>
+            <?php 
+            if ($_SESSION["login"]=="false"){
+              echo "<div class=\"text-wrapper-6\"><a href=\"/connexion/connexion.php\"><button class=\"Connexion\" role=\"button\">Connexion</button></a></div>";
+            }else{
+              echo "<a href=\"/Profil/Profil.php\"><img id=\"pppetit\" src=\"/img/pp.png\" alt=\"\"></a>";
+            }
+            ?>
           </div>
         </header>
       </div>

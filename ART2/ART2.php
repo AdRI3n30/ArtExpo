@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="ART2.css" />
-    <link rel="stylesheet" href="ART.css" />
+    <link rel="stylesheet" href="ART3.css" />
+    <link rel="stylesheet" href="ARt2.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script  src="ArtExpo.js" defer></script>
+    <script  src="ARTExpo2.js" defer></script>
   </head>
   <body >
     <div class="page-d-accueil">
@@ -13,11 +13,11 @@
         <div class="overlap">
           <div id="mySidenav" class="sidenav">
             <ul>
-              <li><a href="/Catégorie/Vidéo/Videopage.html">Vidéo</a></li>
-              <li><a href="/Catégorie/Musique/Music.html">Musique</a></li>
-              <li><a href="/Catégorie/Théâtre/Theatre.html">Théâtre</a></li>
-              <li><a href="/Catégorie/Tableaux/Tableau.html">Tableaux</a></li>
-              <li><a href="/Catégorie/Photos/Photo.html">Photos</a></li>
+              <li><a href="/Catégorie/Vidéo/Videopage.php">Vidéo</a></li>
+              <li><a href="/Catégorie/Musique/Music.php">Musique</a></li>
+              <li><a href="/Catégorie/Théâtre/Theatre.php">Théâtre</a></li>
+              <li><a href="/Catégorie/Tableaux/Tableau.php">Tableaux</a></li>
+              <li><a href="/Catégorie/Photos/Photo.php">Photos</a></li>
             </ul>
           </div>
           <div id="mySidenav2" class="sidenav2">
@@ -37,13 +37,13 @@
         </div>
         <header class="header">
           <div class="overlap-3">
-            <img class="logo" src="img/logo.png" />
+            <img class="logo" src="/img/logo.png" />
             <div class="text-wrapper-3"><button class="Accueil" role="button">Accueil</button></div>
             <a id="openBtn" href="#" class="open">
               <button class="Catégories" role="button">Catégories</button>
             </a>
-            <div class="text-wrapper-5"><a href="/Catégorie/Contact/contact.html"><button class="Contact" role="button">Contact</button></a></div>
-            <div class="text-wrapper-6"><a href="/connexion/connexion.html"><button class="Connexion" role="button">Connexion</button></a></div>
+            <div class="text-wrapper-5"><a href="/Catégorie/Contact/contact.php"><button class="Contact" role="button">Contact</button></a></div>
+            <a href="/Profil/Profil.php"><img id="pppetit" src="/img/pp.png" alt=""></a>
           </div>
         </header>
       </div>

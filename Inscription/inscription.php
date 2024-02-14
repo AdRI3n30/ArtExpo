@@ -5,11 +5,11 @@
         <link rel="stylesheet" href="inscription.css" media="screen" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script  src="inscription.js" defer></script>
-        <title>Formulaire html</title>
+        <title>Formulaire php</title>
     </head>
     <body>
         <div class="overlap-3">
-            <a href="/ART.html"><button class="butlogo"> <img class="logo" src="/img/LOGO PAPILLON.webp" /> </button></a>
+            <a href="/ART.php"><button class="butlogo"> <img class="logo" src="/img/LOGO PAPILLON.webp" /> </button></a>
          </div>
         <div id="container">
             <div id="snackbar-container"></div>
@@ -30,7 +30,7 @@
                 <input type="password" placeholder="Mot de passe" id="password" name="password" required>
 
                 <input type=submit value="Register">
-                <label><a href="/Connexion/connexion.html" class="compte"><b>J'ai retrouvé mon compte</b></a></label>
+                <label><a href="/Connexion/connexion.php" class="compte"><b>J'ai retrouvé mon compte</b></a></label>
             </form>
         </div> 
     </body>

@@ -41,7 +41,7 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hasher le mo
 $sql = "INSERT INTO users (firstname , lastname,username, email, password) VALUES ('$lastname','$firstname','$username', '$email', '$password')";
 
 if ($conn->query($sql) === TRUE) {
-    header("Location: /ART2/ART2.html");
+    header("Location: /ART2/ART2.php");
     echo "Registration successful";
     // Rediriger vers une autre page après 2 secondes
     echo '<meta http-equiv="refresh" content="2;url=ART.html">';

@@ -11,12 +11,12 @@ function route($page)
     if (in_array($page, $allowedPages)) {
         // Charger la page HTML correspondante
         if ($page == 'connexion' || $page == 'inscription'|| $page == 'contact') {
-            include($page . '/' . $page . '.html');
+            include($page . '/' . $page . '.php');
         } else {
-            include($page . '.html');
+            include($page . '.php');
         }
     } else {
-        include('404.html'); // Page non trouvée
+        include('404.php'); // Page non trouvée
     }
 }
 

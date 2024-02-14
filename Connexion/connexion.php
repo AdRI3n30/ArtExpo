@@ -7,7 +7,7 @@
    </head>
    <body>
       <div class="overlap-3">
-         <a href="/ART.html"><button class="butlogo"> <img class="logo" src="/img/LOGO PAPILLON.webp" /> </button></a>
+         <a href="/ART.php"><button class="butlogo"> <img class="logo" src="/img/LOGO PAPILLON.webp" /> </button></a>
       </div>
       <div id="container">
       <!-- zone de connexion -->
@@ -23,7 +23,7 @@
 
             <input type="submit" id='submit' value='Login' >
 
-            <label><a href="/Inscription/inscription.html" class="compte"><b>Je n'ai pas de compte ?</b></a></label>
+            <label><a href="/Inscription/inscription.php" class="compte"><b>Je n'ai pas de compte ?</b></a></label>
 
          </form>
       </div>

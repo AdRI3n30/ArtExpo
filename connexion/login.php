@@ -14,10 +14,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Récupérer les données du formulaire
-$username = $_POST['username'];
-$password = $_POST['password'];
-
 // Vérifier les informations dans la base de données
 $sql = "SELECT * FROM users WHERE username='$username'";
 $result = $conn->query($sql);
@@ -28,7 +24,7 @@ if ($result->num_rows > 0) {
     if (password_verify($password, $row['password'])) {
         // Rediriger vers la racine du site
         $login = true;
-        header("Location: /ART2/ART2.html");
+        header("Location: /ART2/ART2.php");
         exit();
     } else {
         echo "Invalid password";

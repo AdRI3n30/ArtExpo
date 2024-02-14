@@ -13,10 +13,10 @@
 <body class="fond">
     <header>
        <div class="nav">
-         <a href="../../ART.html"alt=""><img id="logo" src="../../img/logo.png"></a>
-         <a class="active" href="../../ART.html">Accueil</a>
+         <a href="../../ART.php"alt=""><img id="logo" src="../../img/logo.png"></a>
+         <a class="active" href="../../ART.php">Accueil</a>
          <a href="">Catégories</a>
-         <a href="./Contact.html">Contact</a>
+         <a href="./Contact.php">Contact</a>
        </div>
     </header>
 <section>

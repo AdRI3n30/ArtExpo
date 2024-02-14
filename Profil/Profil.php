@@ -12,24 +12,24 @@
         <div class="headerleft">
             <img src="../img/logo.png " id="logo" alt="">
         </div>
-        <div class="headerright">
-            <div id="mySidenav" class="sidenav">
-                <ul>
-                <li><a href="/Catégorie/Vidéo/Videopage.php">Vidéo</a></li>
-                <li><a href="/Catégorie/Musique/Music.php">Musique</a></li>
-                <li><a href="/Catégorie/Théâtre/Theatre.php">Théâtre</a></li>
-                <li><a href="/Catégorie/Tableaux/Tableau.php">Tableaux</a></li>
-                <li><a href="/Catégorie/Photos/Photo.php">Photos</a></li>
-                </ul>
-            </div>
+        <div id="mySidenav" class="sidenav">
+            <ul>
+            <li><a href="/Catégorie/Vidéo/Videopage.php">Vidéo</a></li>
+            <li><a href="/Catégorie/Musique/Music.php">Musique</a></li>
+            <li><a href="/Catégorie/Théâtre/Theatre.php">Théâtre</a></li>
+            <li><a href="/Catégorie/Tableaux/Tableau.php">Tableaux</a></li>
+            <li><a href="/Catégorie/Photos/Photo.php">Photos</a></li>
+            </ul>
+        </div>
+        <div class="headerright"> 
             <ul class="navbar">
-                <li><a href="../ART2/ART2.php">Accueil</a></li>
+                <li><div id="navee"><a href="../ART2/ART2.php">Accueil</a></div></li>
                 <li>
                     <a id="openBtn" href="#" class="open">
                     <button class="Catégories" role="button">Catégories</button>
                   </a>
                 </li>
-                <li><a href="../Catégorie/Contact/Contact.php">Contact</a></li>
+                <li><div id="navee"><a href="../Catégorie/Contact/Contact.php">Contact</a></div></li>
             </ul>
                 <a href="./Profil.php"><img id="pppetit" src="../img/pp.png" alt=""></a>
         </div>
@@ -50,5 +50,7 @@
             <textarea cols="70" rows="10">Zone de texte!</textarea>
         </div>
     </section>
+    <div id="deco"><button id="btn-deco">Deconexion</button></div>
+    
 </body>
 </html>

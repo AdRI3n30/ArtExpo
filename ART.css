@@ -143,7 +143,6 @@
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  display: inline-block;
   font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: 110%;
   font-weight: 600;
@@ -152,16 +151,10 @@
   margin-left: -60%;
   min-height: 60px;
   min-width: 0;
-  outline: none;
   text-align: center;
-  text-decoration: none;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-  user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
   width: 100%;
-  will-change: transform;
-  text-decoration: none;
   background: linear-gradient(to top, #FFD700 0%, #FFD700 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
   transition: background-size .5s;
 }
@@ -181,8 +174,6 @@
   box-shadow: none;
   transform: translateY(0);
 }
-
-
 
 .page-d-accueil .text-wrapper-4 {
   position: absolute;

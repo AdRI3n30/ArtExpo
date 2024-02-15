@@ -21,12 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-<<<<<<< Updated upstream
-=======
-} else {
-    echo "User not found lol";
-}
->>>>>>> Stashed changes
 
     // Préparer et exécuter la requête SQL en utilisant une requête préparée
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");

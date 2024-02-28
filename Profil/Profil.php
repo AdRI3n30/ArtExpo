@@ -23,7 +23,7 @@
         </div>
         <div class="headerright"> 
             <ul class="navbar">
-                <li><div id="navee"><a href="../ART2/ART2.php">Accueil</a></div></li>
+                <li><div id="navee"><a href="/">Accueil</a></div></li>
                 <li>
                     <a id="openBtn" href="#" class="open">
                     <button class="Catégories" role="button">Catégories</button>
@@ -51,7 +51,7 @@
                 $servername = "localhost";
                 $username_mysql = "root"; // Nom d'utilisateur MySQL
                 $password_mysql = ""; // Mot de passe MySQL
-                $dbname = "monsite_users";
+                $dbname = "artexpo";
 
                 $conn = new mysqli($servername, $username_mysql, $password_mysql, $dbname);
 

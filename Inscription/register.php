@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "monsite_users";
+$dbname = "artexpo";
 session_start();
 
 $conn = new mysqli($servername,$username, $password, $dbname);

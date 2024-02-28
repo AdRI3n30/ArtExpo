@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username_mysql = "root"; // Nom d'utilisateur MySQL
 $password_mysql = ""; // Mot de passe MySQL
-$dbname = "monsite_users";
+$dbname = "artexpo";
 session_start();
 
 

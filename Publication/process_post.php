@@ -10,6 +10,37 @@ if(isset($_SESSION['user_id'])) {
     // Récupération de l'ID de l'utilisateur à partir de la session
     $user_id = $_SESSION['user_id'];
 
+    // Requête SQL pour récupérer les informations de l'utilisateur
+    $sql = "SELECT username, is_admin FROM users WHERE id = ?";
+    $stmt = $mysqli->prepare($sql);
+
+    // Vérifier si la préparation de la requête a échoué
+    if(!$stmt) {
+        die("Erreur de préparation de la requête: " . $mysqli->error);
+    }
+
+    $stmt->bind_param("i", $user_id);
+
+    // Exécution de la requête
+    if(!$stmt->execute()) {
+        die("Erreur lors de l'exécution de la requête: " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+
+    // Vérification si la requête a réussi
+    if ($result) {
+        // Récupération des données de l'utilisateur
+        $row = $result->fetch_assoc();
+        $username = $row['username']; // Récupération du nom de l'utilisateur
+        $is_admin = $row['is_admin']; // Récupération de la valeur de is_admin
+    } else {
+        // Gestion des erreurs de requête
+        echo "Erreur de requête : " . $mysqli->error;
+        exit(); // Arrêter le script en cas d'erreur
+    }
+
+    // Vérification si le formulaire a été soumis
     if(isset($_POST['submit'])) {
         // Récupération des données du formulaire
         $content = $_POST['content'];
@@ -26,8 +57,18 @@ if(isset($_SESSION['user_id'])) {
         // Requête SQL pour insérer la publication dans la base de données
         $sql = "INSERT INTO posts (user_id, content, image_path) VALUES (?, ?, ?)";
         $stmt = $mysqli->prepare($sql);
+
+        // Vérifier si la préparation de la requête a échoué
+        if(!$stmt) {
+            die("Erreur de préparation de la requête: " . $mysqli->error);
+        }
+
         $stmt->bind_param("iss", $user_id, $content, $image_path);
-        $stmt->execute();
+
+        // Exécution de la requête
+        if(!$stmt->execute()) {
+            die("Erreur lors de l'exécution de la requête: " . $stmt->error);
+        }
 
         // Redirection vers la page d'affichage des publications
         header("Location: display_posts.php");

@@ -33,8 +33,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
-            // Rediriger vers la racine du site
+            // Définir l'ID de l'utilisateur dans la session
             $_SESSION["user_id"] = $row['id'];
+            
+            // Vérifier si l'utilisateur est un administrateur
+            if ($row['is_admin'] == 1) {
+                $_SESSION["is_admin"] = true;
+            } else {
+                $_SESSION["is_admin"] = false;
+            }
+            
+            // Rediriger vers la racine du site
             $_SESSION["login"]="True";
             header("Location: /");
             exit();
@@ -50,3 +59,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

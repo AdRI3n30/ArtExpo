@@ -1,6 +1,5 @@
 <?php
-include('connexion/login.php');
-$login1 = $login;
+
 // Fonction pour charger la page demandée
 function route($page)
 {
@@ -24,26 +23,14 @@ function route($page)
 // Récupérer la partie de l'URL après le nom du domaine
 $request = trim($_SERVER['REQUEST_URI'], '/');
 // Si l'URL est vide, rediriger vers la page d'accueil
-if ($login1 === false){
-    if ($request === '') {
-        route('ART');
-    } else {
-        route($request);
-    
-        // Réinitialiser l'URL si la page demandée est la page d'accueil
-        if ($request == 'ART') {
-            echo '<script>window.onload = function() { history.replaceState({}, document.title, "index.php"); }</script>';
-        }
-    }
-}else{
-    if ($request === '') {
-        route('ART2');
-    } else {
-        route($request);
-    
-        // Réinitialiser l'URL si la page demandée est la page d'accueil
-        if ($request == 'ART2') {
-            echo '<script>window.onload = function() { history.replaceState({}, document.title, "index.php"); }</script>';
-        }
+if ($request === '') {
+    route('ART');
+} else {
+    route($request);
+
+    // Réinitialiser l'URL si la page demandée est la page d'accueil
+    if ($request == 'ART') {
+        echo '<script>window.onload = function() { history.replaceState({}, document.title, "index.php"); }</script>';
     }
 }
+

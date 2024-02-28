@@ -29,6 +29,9 @@
                 <label for="password"> Votre mot de passe :</label>
                 <input type="password" placeholder="Mot de passe" id="password" name="password" required>
 
+                <label for="profil_image"> Votre image de profil :</label>
+                <input type="file" name="image" id="image" accept="image/*" ><br>
+
                 <input type=submit value="Register">
                 <label><a href="/Connexion/connexion.php" class="compte"><b>J'ai retrouvé mon compte</b></a></label>
             </form>

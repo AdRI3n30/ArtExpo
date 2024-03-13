@@ -75,9 +75,10 @@ body{
 }
 
 img#logog{
-    position: absolute;
-    right: -78px;
-    bottom: -43px;
+    width: 50px;
+    height: fit-content;
+    margin-left: 50px;
+    border-radius: 50px;
 }
 
 .rightside{

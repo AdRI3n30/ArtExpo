@@ -31,15 +31,6 @@
                 </li>
                 <li><div id="navee"><a href="../Catégorie/Contact/Contact.php">Contact</a></div></li>
             </ul>
-                <a href="./Profil.php"><img id="pppetit" src="../img/pp.png" alt=""></a>
-        </div>
-    </div>
-    <section id="container">
-        <div class="leftside">
-            <div class="test"><img id="logog" src="../img/pp.png" alt=""></div>
-            <h1>Profil</h1>
-        </div>
-        <div class="rightside">
         <?php
             // Vérifier si l'utilisateur est connecté
             session_start();
@@ -61,7 +52,7 @@
                 }
 
                 // Préparer et exécuter la requête SQL pour récupérer les informations de l'utilisateur
-                $stmt = $conn->prepare("SELECT firstname , lastname, username, email FROM users WHERE id = ?");
+                $stmt = $conn->prepare("SELECT firstname , lastname, username, email, profil_image FROM users WHERE id = ?");
                 $stmt->bind_param("i", $user_id);
 
                 // Exécuter la requête
@@ -78,8 +69,12 @@
                     $firstname = $row['firstname'];
                     $lasttname = $row['lastname'];
                     $email = $row['email'];
+                    $profile_image = $row['profil_image'];
 
                     // Afficher les informations de l'utilisateur
+                    echo "<a href=\"./Profil.php\"><img id=\"pppetit\" src=$profile_image alt=\"\"></a> </div> </div> <section id=\"container\">";
+                    echo "<div class=\"leftside\"><div class=\"test\"><img id=\"logog\" src=$profile_image></div> <h1>Profil</h1> </div>";
+                    echo "<div class=\"rightside\">";
                     echo "<p>Nom Utilisateur</p>";
                     echo "<h2>$username</h2>";
                     echo "<p>Prénom </p>";
@@ -88,6 +83,7 @@
                     echo "<h2>$lasttname</h2>";
                     echo "<p>Mail</p>";
                     echo "<h2>$email</h2>";
+                    echo "</div>";
                 } else {
                     // Aucune information trouvée pour cet ID d'utilisateur
                     echo "Aucune information disponible pour cet utilisateur.";
@@ -101,7 +97,6 @@
                 echo "Veuillez vous connecter pour afficher votre profil.";
             }
             ?>
-        </div>
     </section>
 
     <div class="deco"><a href="../Deconnexion.php" class="btn-deco">Deconexion</button></a></div>

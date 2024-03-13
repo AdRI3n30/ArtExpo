@@ -47,10 +47,10 @@ if(isset($_SESSION['user_id'])) {
     <div class="overlap-3">
         <a href="/"><button class="butlogo"> <img class="logo" src="/img/LOGO PAPILLON.webp" /> </button></a>
     </div>
-    <p class="titre">Tableaux</p> 
+    <p class="titre">Vidéo</p> 
 </header> 
 <div class="videopage">
-    <?php foreach($posts_by_category['Tableaux'] ?? [] as $post): ?>
+    <?php foreach($posts_by_category['Vidéo'] ?? [] as $post): ?>
         <div class="video">
             <!-- Afficher l'image de la publication -->
             <?php if(!empty($post['image_path'])): ?>

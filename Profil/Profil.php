@@ -97,6 +97,7 @@
                 echo "Veuillez vous connecter pour afficher votre profil.";
             }
             ?>
+            <a href="/Publication/index.php">Post</a>
     </section>
 
     <div class="deco"><a href="../Deconnexion.php" class="btn-deco">Deconexion</button></a></div>

@@ -14,7 +14,7 @@
         </div>
         <div id="mySidenav" class="sidenav">
             <ul>
-            <li><a href="/Catégorie/Vidéo/Videopage.php">Vidéo</a></li>
+            <li><a href="/Catégorie/Vidéo/Vidéo.php">Vidéo</a></li>
             <li><a href="/Catégorie/Musique/Music.php">Musique</a></li>
             <li><a href="/Catégorie/Théâtre/Theatre.php">Théâtre</a></li>
             <li><a href="/Catégorie/Tableaux/Tableau.php">Tableaux</a></li>

@@ -1,31 +1,76 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="utf-8">
-      <!-- importer le fichier de style -->
-      <link rel="stylesheet" href="Connexion.css" media="screen" type="text/css" />
-   </head>
-   <body>
-      <div class="overlap-3">
-         <a href="/ART.php"><button class="butlogo"> <img class="logo" src="/img/LOGO PAPILLON.webp" /> </button></a>
-      </div>
-      <div id="container">
-      <!-- zone de connexion -->
-      
-         <form action="login.php" method="post" >
-            <h1>Connexion</h1>
-            
-            <label for="username"><b>Nom d'utilisateur</b></label>
-            <input type="text" placeholder="Entrer le nom d'utilisateur" id="username" name="username" required>
-
-            <label for="password"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" id="password" name="password" required>
-
-            <input type="submit" id='submit' value='Login' >
-
-            <label><a href="/Inscription/inscription.php" class="compte"><b>Je n'ai pas de compte ?</b></a></label>
-
-         </form>
-      </div>
-   </body>  
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login 01</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Mulish&display=swap"
+            rel="stylesheet"
+        >
+        <link rel="stylesheet" href="connexion.css">
+    </head>
+    <body>
+        <div class="background"></div>
+        <div class="centering">
+            <form class="my-form" action="login.php" method="post">
+                <div class="login-welcome-row">
+                    <img
+                        class="login-welcome"
+                        src="../img/logo.png"
+                        alt="Astronaut"
+                    >
+                    <!-- optimize the image in production -->
+                    <h1>Login!</h1>
+                </div>
+                <div class="text-field">
+                    <label for="email">Pseudo:</label>
+                    <input
+                        aria-label="Email"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Your Pseudo"
+                        required
+                    >
+                    <img
+                        alt="Email Icon"
+                        title="Email Icon"
+                        src="../img/email.svg"
+                    >
+                </div>
+                <div class="text-field">
+                    <label for="password">Password:</label>
+                    <input
+                        id="password"
+                        type="password"
+                        aria-label="Password"
+                        name="password"
+                        placeholder="Your Password"
+                        title="Minimum 6 characters at least 1 Alphabet and 1 Number"
+                        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+                        required
+                    >
+                    <img
+                        alt="Password Icon"
+                        title="Password Icon"
+                        src="../img/password.svg"
+                    >
+                </div>
+                <input type="submit" class="my-form__button" value="Login" >
+                <div class="my-form__actions">
+                    <div class="my-form__row">
+                        <span>Did you forget your password?</span>
+                        <a href="#" title="Reset Password">Reset Password</a>
+                    </div>
+                    <div class="my-form__signup">
+                        <a href="#" title="Create Account">Create Account</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>

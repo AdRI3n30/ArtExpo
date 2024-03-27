@@ -12,25 +12,79 @@ header {
 body {
     margin: 0;
     padding: 0;
-
-
 }
 
 .profil {
-    margin: 10%;
-    padding: 10%;
+    margin: 4%;
+    padding: 3%;
+    margin-top: 0.1rem;
+    margin-right: 20%;
     box-sizing: border-box;
     display: flex;
-    justify-content: center; /* Centrer horizontalement */
-    align-items: center; /* Centrer verticalement */
-    height: 100vh; /* Utiliser toute la hauteur de la fenêtre */
-    background-color: blue;
-    border-radius: 2%;
+    justify-content: center; /* Pour aligner les éléments horizonta lement au milieu */
+    align-items: flex-end; 
+    height: 100vh; 
+    width: 140vh;
+    border-width: 100%;
+    border-bottom: 2px solid rgb(219, 219, 219); /* Ajout de la bordure */
+    background-color: transparent;
+    flex-direction: column;
+}
+.profil img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px; /* Ajoute une marge entre l'image et les boutons */
+}
+
+.content {
+    display: flex;
+    flex-direction: column; /* Pour aligner les boutons en colonne */
+}
+
+.button-container {
+    margin-bottom: 12%; /* Ajoute une marge entre les boutons */
+    width: 100%;
+    height: 150%;
+    display: flex;
+    margin-left: 1%;
+    flex-direction: column; /* Aligne les boutons en colonne */
+}
+
+.button-container button {
+    margin-top: 20%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.image-container {
+    display: flex;
+    align-items: flex-start;
     align-items: flex-end;
 }
 
-.profil img {
-    max-width: 100%;
-    max-height: 50%;
-    object-fit: cover;
+.profile-info{
+    display: flex;}
+
+.pseudo {
+    font-size: 2rem;
+    align-self: center;
+    margin-left: 2%;
+
+}
+
+.photo_de_profil {
+    height: 60px; /* Ajustez la hauteur selon vos besoins */
+    width: 60px; /* Ajustez la largeur selon vos besoins */
+    border-radius: 100%; /* Ajustez la marge selon vos besoins */
+    cursor: pointer;
 }

@@ -72,8 +72,8 @@
                     $profile_image = $row['profil_image'];
 
                     // Afficher les informations de l'utilisateur
-                    echo "<a href=\"./Profil.php\"><img id=\"pppetit\" src=$profile_image alt=\"\"></a> </div> </div> <section id=\"container\">";
-                    echo "<div class=\"leftside\"><div class=\"test\"><img id=\"logog\" src=$profile_image></div> <h1>Profil</h1> </div>";
+                    echo "<a href=\"./Profil.php\"><img id=\"pppetit\" src=\"" . str_replace(' ', '', '../Inscription/' . $profile_image) . "\" alt=\"\"></a> </div> </div> <section id=\"container\">";
+                    echo "<div class=\"leftside\"><div class=\"test\"><img id=\"logog\" src=\"" . str_replace(' ', '', '../Inscription/' . $profile_image) . "\"></div> <h1>Profil</h1> </div>";
                     echo "<div class=\"rightside\">";
                     echo "<p>Nom Utilisateur</p>";
                     echo "<h2>$username</h2>";

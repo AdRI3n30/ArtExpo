@@ -32,27 +32,29 @@ if (substr_compare($email, $domainToCheck, $emailLength - $domainLength, $domain
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hasher le mot de passe
 
-    // Récupérer le nom de l'image téléchargée
-    $image_name = $_FILES['profile_image']['name'];
-    // Récupérer le chemin temporaire de l'image téléchargée sur le serveur
-    $image_tmp_name = $_FILES['profile_image']['tmp_name'];
-
-    // Définir le chemin de destination pour l'image téléchargée sur votre serveur
-    $image_destination = '../Publication/uploads/' . $image_name;
-
-    // Déplacer l'image téléchargée depuis le répertoire temporaire vers votre répertoire de destination
-    move_uploaded_file($image_tmp_name, $image_destination);
+    $image_path = "";
+    if(isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] === UPLOAD_ERR_OK) {
+        echo "Fichier téléchargé avec succès <br>";
+        $image_name = $_FILES['profile_image']['name'];
+        $image_tmp_name = $_FILES['profile_image']['tmp_name'];
+        $image_path = "imgProfil/" .$image_name;
+        move_uploaded_file($image_tmp_name, $image_path);
+        echo "Chemin du fichier temporaire: " . $image_tmp_name . "<br>";
+        echo "Nom du fichier: " . $image_name . "<br>" ;
+    }else{
+        echo "NON";
+    }     
 
     // Insérer les données dans la base de données
     $sql = "INSERT INTO users (firstname, lastname, username, email, password, profil_image) 
-            VALUES ('$lastname', '$firstname', '$username', '$email', '$password', '$image_destination')";
+            VALUES ('$lastname', '$firstname', '$username', '$email', '$password', ' $image_path')";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION["user_id"] = $conn->insert_id; // Récupérer l'ID de l'utilisateur inséré
         $_SESSION["login"] = "True";
-        echo "Inscription réussie";
+        echo "Inscription réussit";
         // Rediriger vers une autre page après 2 secondes
-        header("refresh:2; url=/");
+        header("refresh:20; url=/");
     } else {
         echo "Erreur: " . $sql . "<br>" . $conn->error;
     }

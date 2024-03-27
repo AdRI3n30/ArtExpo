@@ -15,6 +15,11 @@
     justify-content:space-between;
     box-shadow: 0px 5px 5px black;
 }
+.logo img{
+    width: 15%;
+    cursor: pointer;
+}
+
 
 .navbar a{
     margin-left: 40px;

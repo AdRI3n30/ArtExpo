@@ -87,11 +87,6 @@
     display:flex;
 }
 
-.logo img{
-    width: 15%;
-    cursor: pointer;
-}
-
 .logo2 img{
     display: flex;
     align-items: center;

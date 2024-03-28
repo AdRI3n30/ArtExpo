@@ -74,7 +74,7 @@ body{
 }
 
 .info p{
-    margin-top: 3px;
+    margin-top: 1em;
     font-size: 35px;
         font-family: "Kanit", sans-serif;
         font-weight: lighter;

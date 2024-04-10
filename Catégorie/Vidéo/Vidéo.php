@@ -57,7 +57,7 @@ if(isset($_SESSION['user_id'])) {
         <?php endif; ?>
          <!-- Afficher le nombre de likes et le formulaire de like seulement si l'utilisateur est connecté -->
          <?php if(isset($_SESSION['user_id'])): ?>
-            <p>Nombre de likes : <?php echo $post['likes']; ?></p>
+            <p>Nombre de likes : <?php echo isset($post['likes']) ? $post['likes'] : 0; ?></p>
             <form action="../../Publication/like_post.php" method="post">
                 <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
                 <button type="submit" name="like">Like</button>
@@ -72,6 +72,9 @@ if(isset($_SESSION['user_id'])) {
                         JOIN users ON comments.user_id = users.id
                         WHERE comments.post_id = ?";
         $comment_stmt = $mysqli->prepare($comment_sql);
+        if(!$comment_stmt) {
+            die("Erreur de préparation de la requête: " . $mysqli->error);
+        }
         $post_id = $post['id']; // L'ID de la publication actuelle
         $comment_stmt->bind_param("i", $post_id);
         $comment_stmt->execute();

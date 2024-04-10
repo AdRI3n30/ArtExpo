@@ -23,7 +23,7 @@
                         alt="Astronaut"
                     >
                     <!-- optimize the image in production -->
-                    <h1>Login!</h1>
+                    <h1>Login !</h1>
                 </div>
                 <div class="text-field">
                     <label for="email">Pseudo:</label>
@@ -60,11 +60,11 @@
                 <input type="submit" class="my-form__button" value="Login" >
                 <div class="my-form__actions">
                     <div class="my-form__signup">
-                        <a href="/inscription/inscription.php" title="Create Account">Create Account</a>
+                        <a href="/inscription/inscription.php" title="Create Account" class="page-transition">Create Account</a>
+                        
                     </div>
                 </div>
             </form>
         </div>
-        <script src="script.js"></script>
     </body>
 </html>

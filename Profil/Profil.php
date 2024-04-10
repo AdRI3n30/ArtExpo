@@ -17,11 +17,11 @@
 <body>
     <header>
         <div class="HeaderHaut">
-            <div class="logo" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/Logonobg.png" alt=""></a></div>
+            <div class="logo" id="logo"><a href="/"><img src="../../img/Logonobg.png" alt=""></a></div>
         <div class="navbar">
-            <a href="">Accueil</a>
-            <a href="">Contact</a>
-            <a href="">Profil</a>
+            <a href="/">Accueil</a>
+            <a href="/Catégorie/Contact/Contact.php">Contact</a>
+            <a href="/Profil/Profil.php">Profil</a>
         </div>
         </div>
         <div class="HeaderBas">

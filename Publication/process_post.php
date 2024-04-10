@@ -54,6 +54,7 @@ if(isset($_SESSION['user_id'])) {
     // Vérification si le formulaire a été soumis
     if(isset($_POST['submit'])) {
         // Récupération des données du formulaire
+        $titre = $_POST['title'];
         $content = $_POST['content'];
         $category_id = $_POST['category']; // Récupération de l'ID de la catégorie sélectionnée
 
@@ -67,7 +68,7 @@ if(isset($_SESSION['user_id'])) {
         }
 
         // Requête SQL pour insérer la publication dans la base de données
-        $sql_insert_post = "INSERT INTO posts (user_id, content, image_path, category_id) VALUES (?, ?, ?, ?)";
+        $sql_insert_post = "INSERT INTO posts (user_id, titre, content, image_path, category_id) VALUES (?, ?, ?, ?, ?)";
         $stmt_insert_post = $mysqli->prepare($sql_insert_post);
 
         // Vérifier si la préparation de la requête a échoué
@@ -75,7 +76,7 @@ if(isset($_SESSION['user_id'])) {
             die("Erreur de préparation de la requête: " . $mysqli->error);
         }
 
-        $stmt_insert_post->bind_param("issi", $user_id, $content, $image_path, $category_id);
+        $stmt_insert_post->bind_param("issii", $user_id, $titre, $content, $image_path, $category_id);
 
         // Exécution de la requête
         if(!$stmt_insert_post->execute()) {

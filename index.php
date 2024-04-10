@@ -4,7 +4,7 @@
 function route($page)
 {
     // Liste des pages autorisées
-    $allowedPages = ['ART','ART2', 'inscription', 'connexion', 'contact'];
+    $allowedPages = ['ART', 'inscription', 'connexion', 'contact'];
 
     // Vérifier si la page demandée est autorisée
     if (in_array($page, $allowedPages)) {

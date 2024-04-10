@@ -57,10 +57,10 @@
                     <p class="mail" id="slide-2">divine.miessam@ynov.com</p>
                 </div> 
                 <div class="slide-3">
-                    <p class="mail" id="slide-3">o.miessam@ynov.com</p>
+                    <p class="mail" id="slide-3">yanis@ynov.com</p>
                 </div> 
                 <div class="slide-4">
-                    <p class="mail" id="slide-4">d.miessam@ynov.com</p>
+                    <p class="mail" id="slide-4">Along@ynov.com</p>
                 </div>     
             </div>
             <div class="slider-nav">

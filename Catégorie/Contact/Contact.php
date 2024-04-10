@@ -45,7 +45,7 @@
             <p class="description">Nous sommes disponible si vous avez besoins de nous contactez</p>
         </div>
         <div class="container2">
-            <img src="../../img/Enveloppe.png" alt="" id="env">
+            <img src="../../img/Enveloppe.png" alt="" id="env"><br>
         </div>
 
         <div class="slider-wrapper">
@@ -61,13 +61,21 @@
                 </div> 
                 <div class="slide-4">
                     <p class="mail" id="slide-4">Along@ynov.com</p>
-                </div>     
+                </div>  
+                <div class="slide-5">
+                    <p class="mail" id="slide-5">Tom@ynov.com</p>
+                </div>
+                <div class="slide-6">
+                    <p class="mail" id="slide-6">Adrien@ynov.com</p>
+                </div> 
             </div>
             <div class="slider-nav">
                 <a href="#slide-1"></a>
                 <a href="#slide-2"></a>
                 <a href="#slide-3"></a>
                 <a href="#slide-4"></a>
+                <a href="#slide-5"></a>
+                <a href="#slide-6"></a>
                 
             </div>
         </div>

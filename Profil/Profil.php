@@ -21,6 +21,7 @@
         <div class="navbar">
             <a href="/">Accueil</a>
             <a href="/Catégorie/Contact/Contact.php">Contact</a>
+            <a href="/Publication/index.php">Post</a>
             <a href="/Profil/Profil.php">Profil</a>
         </div>
         </div>

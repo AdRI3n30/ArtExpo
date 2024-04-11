@@ -10,7 +10,7 @@
     <body>
         <div class="background"></div>
         <div class="centering">
-            <form action="register.php" method="post" class="my-form">
+            <form action="register.php" method="post" class="my-form"  enctype="multipart/form-data" >
                 <div class="login-welcome-row">
                     <img
                         class="login-welcome"

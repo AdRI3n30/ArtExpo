@@ -65,26 +65,20 @@ if(isset($_SESSION['user_id'])) {
             $image_tmp_name = $_FILES['image']['tmp_name'];
             $image_path = 'uploads/' . $image_name;
             move_uploaded_file($image_tmp_name, $image_path);
+        }else{
+            echo"NON";
         }
 
         // Requête SQL pour insérer la publication dans la base de données
-        $sql_insert_post = "INSERT INTO posts (user_id, titre, content, image_path, category_id) VALUES (?, ?, ?, ?, ?)";
-        $stmt_insert_post = $mysqli->prepare($sql_insert_post);
-
-        // Vérifier si la préparation de la requête a échoué
-        if(!$stmt_insert_post) {
-            die("Erreur de préparation de la requête: " . $mysqli->error);
-        }
-
-        $stmt_insert_post->bind_param("issii", $user_id, $titre, $content, $image_path, $category_id);
+        $sql_insert_post = "INSERT INTO posts (user_id, titre, content, image_path, category_id) VALUES ('$user_id', '$titre', '$content', '$image_path', '$category_id')";
 
         // Exécution de la requête
-        if(!$stmt_insert_post->execute()) {
-            die("Erreur lors de l'exécution de la requête: " . $stmt_insert_post->error);
+        if(!$mysqli->query($sql_insert_post)) {
+        die("Erreur lors de l'exécution de la requête: " . $mysqli->error);
         }
 
         // Redirection vers la page d'affichage des publications
-        header("Location: display_posts.php");
+        header("refresh:100; url=/");
         exit();
     }
 } else {

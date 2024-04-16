@@ -13,69 +13,70 @@
     <link rel="stylesheet" href="/CSS/header.css" />
     <link rel="stylesheet" href="/CSS/index.css">
     <link rel="stylesheet" href="/CSS/main.css">
-    <script src="/Newd/js/index.js"></script>
+    <script src="/JS/contact.js"></script>
 </head>
 <body>
-    <header>
-        <div class="HeaderHaut">
-            <div class="logo" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/Logonobg.png" alt=""></a></div>
-        <div class="navbar">
-            <a href="">Accueil</a>
-            <a href="/Catégorie/Contact/Contact.php">Contact</a>
-            <?php
-              if ($_SESSION["login"] == "false") {
-                  echo '<a href="/connexion/connexion.php">Connexion</a>';
-              } else {
-                  echo '<a href="/Profil/Profil.php">Profil</a>';
-              }
-        ?>
-        </div>
-        </div>
-        <div class="HeaderBas">
-            <a href="/Catégorie/Musique/Music.php">Musique</a>
-            <a href="/Catégorie/Théâtre/Théâtre.php">Théatre</a>
-            <a href="/Catégorie/Vidéo/Vidéo.php">Vidéo</a>
-            <a href="/Catégorie/Photos/Photo.php">Photo</a>
-            <a href="/Catégorie/Tableaux/Tableau.php">Tableau</a>
-        </div>
-    </header>
-    <div class="container">
-        <div class="firstband">
-            <div id="glassmorph" class="text">
-                
-                <h1>ArtExpo</h1>
-                <p>
-                    Venez Partager Vos Créations
-                </p>
-                
+        <header>
+            <div class="HeaderHaut">
+                <div class="logo" id="logo"><a href="/"><img src="../../img/Logonobg.png" alt=""></a></div>
+            <div class="navbar">
+                <a href="">Accueil</a>
+                <a href="/Catégorie/Contact/Contact.php">Contact</a>
+                <?php
+                if ($_SESSION["login"] == "false") {
+                    echo '<a href="/connexion/connexion.php">Connexion</a>';
+                } else {
+                    echo '<a href="/Publication/index.php">Post</a>';
+                    echo '<a href="/Profil/Profil.php">Profil</a>';
+                }
+            ?>
             </div>
-        </div>
-        <div class="secondband">
-            <div id="glassmorph" class="text2">
-                <div><h1>Lucas S</h1></div>
-                <div class="content"> 
-                    <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/pp.png" alt=""></a></div>
-                
-                <p>
-                    cc c lucas celib et cherche amour svp 
-                </p>
             </div>
-               
-                
+            <div class="HeaderBas">
+                <a href="/Catégorie/Musique/Music.php">Musique</a>
+                <a href="/Catégorie/Théâtre/Théâtre.php">Théatre</a>
+                <a href="/Catégorie/Vidéo/Vidéo.php">Vidéo</a>
+                <a href="/Catégorie/Photos/Photo.php">Photo</a>
+                <a href="/Catégorie/Tableaux/Tableau.php">Tableau</a>
             </div>
-            <div id="glassmorph" class="text2">
-                <div>
-                    <h1>Lucas S</h1>
+        </header>
+        <div class="container">
+            <div class="firstband">
+                <div id="glassmorph" class="text">
+                    
+                    <h1>ArtExpo</h1>
+                    <p>
+                        Venez Partager Vos Créations
+                    </p>
+                    
                 </div>
-                <div class="content">
-                    <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/pp.png" alt=""></a></div>
-                <p>
-                    cc c lucas celib et cherche amour svp 
-                </p>
+            </div>
+            <div class="secondband">
+                <div id="glassmorph" class="text2">
+                    <div><h1>Lucas S</h1></div>
+                    <div class="content"> 
+                        <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/pp.png" alt=""></a></div>
+                    
+                    <p>
+                        cc c lucas celib et cherche amour svp 
+                    </p>
                 </div>
-            </div>        
+                
+                    
+                </div>
+                <div id="glassmorph" class="text2">
+                    <div>
+                        <h1>Lucas S</h1>
+                    </div>
+                    <div class="content">
+                        <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/pp.png" alt=""></a></div>
+                    <p>
+                        cc c lucas celib et cherche amour svp 
+                    </p>
+                    </div>
+                </div>        
+            </div>
         </div>
     </div>
-
 </body>
 </html>

@@ -34,15 +34,12 @@ if (substr_compare($email, $domainToCheck, $emailLength - $domainLength, $domain
 
     $image_path = "";
     if(isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] === UPLOAD_ERR_OK) {
-        echo "Fichier téléchargé avec succès <br>";
         $image_name = $_FILES['profile_image']['name'];
         $image_tmp_name = $_FILES['profile_image']['tmp_name'];
         $image_path = "imgProfil/" .$image_name;
         move_uploaded_file($image_tmp_name, $image_path);
-        echo "Chemin du fichier temporaire: " . $image_tmp_name . "<br>";
-        echo "Nom du fichier: " . $image_name . "<br>" ;
     }else{
-        echo "NON";
+        echo "NON" . "<br>";
     }     
 
     // Insérer les données dans la base de données
@@ -52,9 +49,8 @@ if (substr_compare($email, $domainToCheck, $emailLength - $domainLength, $domain
     if ($conn->query($sql) === TRUE) {
         $_SESSION["user_id"] = $conn->insert_id; // Récupérer l'ID de l'utilisateur inséré
         $_SESSION["login"] = "True";
-        echo "Inscription réussit";
         // Rediriger vers une autre page après 2 secondes
-        header("refresh:20; url=/");
+        header("refresh:1; url=/");
     } else {
         echo "Erreur: " . $sql . "<br>" . $conn->error;
     }

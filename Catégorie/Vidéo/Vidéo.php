@@ -43,7 +43,8 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
     <link rel="stylesheet" href="../../css/header.css" />
     <link rel="stylesheet" href="../../css/main.css" />
     <link rel="stylesheet" href="../../css/index2.css" />
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
+    <title>ArtExpo - Vidéo</title>
 </head>
 <body>
     <div class="HeaderHaut">

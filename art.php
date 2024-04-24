@@ -1,5 +1,9 @@
 <?php
   session_start();
+  if (!isset($_SESSION["login"])) {
+    $_SESSION["login"] = "false"; // Initialisation de la variable de session à false
+}
+
  ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +17,7 @@
     <link rel="stylesheet" href="/CSS/header.css" />
     <link rel="stylesheet" href="/CSS/index.css">
     <link rel="stylesheet" href="/CSS/main.css">
+    <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
     <script src="/JS/contact.js"></script>
 </head>
 <body>
@@ -53,12 +58,12 @@
             </div>
             <div class="secondband">
                 <div id="glassmorph" class="text2">
-                    <div><h1>Lucas S</h1></div>
+                    <div><h1>La Création d'Adam (Michel-Ange)</h1></div>
                     <div class="content"> 
-                        <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/pp.png" alt=""></a></div>
+                        <div class="logo2" id="logo"><img src="../../img/adam.jpg" alt=""></div>
                     
                     <p>
-                        cc c lucas celib et cherche amour svp 
+                    Peintes par Michel-Ange sur la partie centrale de la voûte du plafond de la chapelle Sixtine, dans les musées du Vatican à Rome, commandée par le pape Jules II.
                     </p>
                 </div>
                 

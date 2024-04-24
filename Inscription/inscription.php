@@ -5,7 +5,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/CSS/inscription.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Formulaire php</title>
+        <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
+        <title>ArtExpo - Inscription</title>
     </head>
     <body>
         <div class="background"></div>

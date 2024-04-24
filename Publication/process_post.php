@@ -66,7 +66,8 @@ if(isset($_SESSION['user_id'])) {
             $image_path = 'uploads/' . $image_name;
             move_uploaded_file($image_tmp_name, $image_path);
         }else{
-            echo"NON";
+            echo"Le type de l'image ou la taille ne correspond pas au service";
+            header("refresh:10; url=/index.php");
         }
 
         // Requête SQL pour insérer la publication dans la base de données
@@ -78,7 +79,7 @@ if(isset($_SESSION['user_id'])) {
         }
 
         // Redirection vers la page d'affichage des publications
-        header("refresh:100; url=/");
+        header("refresh:1; url=/");
         exit();
     }
 } else {

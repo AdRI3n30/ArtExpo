@@ -15,12 +15,14 @@ body{
 
 .ProfilPhoto{
     width: 50%;
+    aspect-ratio: 1;
 }
 
 #ProfilPhoto{
     max-width: 100%;
     border-radius: 50%;
     border: 2px solid rgba( 255, 255, 255, 0.18 );
+    aspect-ratio: 1;
 }
 
 .information{

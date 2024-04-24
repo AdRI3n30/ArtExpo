@@ -85,15 +85,14 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
                     <p><?php echo $post['content']; ?></p>
                 </div>  
                 <p>Nombre de likes : <?php echo isset($post['likes']) ? $post['likes'] : 0; ?></p> 
-                <?php if ($_SESSION["login"] == "True") {
-                    echo'<form action="../../Publication/like_post.php" method="post">';
-                        echo'<input type="hidden" name="post_id" value="<?php echo $post[\'id\']; ?>">';
-                        echo'<div class="buttons2">';
-                            echo'<button type="submit" name="like">Like</button>';
-                        echo'</div>';
-                    echo'</form>';
-                }
-                 ?>
+                <?php if($_SESSION["login"] == "True"): ?>
+                    <form action="../../Publication/like_post.php" method="post">
+                        <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
+                        <div class="buttons2">
+                            <button type="submit" name="like">Like</button>
+                        </div>
+                    </form>
+                <?php endif; ?>
                 <!-- Afficher les commentaires -->
                 <h3>Commentaires :</h3>
                 <?php
@@ -123,16 +122,15 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
                 // Libérer la mémoire utilisée par le résultat des commentaires
                 $comment_result->free();
                 ?>
-                <?php if($_SESSION["login"] == "True"){
-                    echo'<form action="../../Publication/save_comment.php" method="post">';
-                        echo'<input type="hidden" name="post_id" value="<?php echo $post[\'id\']; ?>">';
-                        echo'<textarea name="message" placeholder="Entrez votre commentaire ici"></textarea>';
-                        echo'<div class="buttons">';
-                            echo'<button type="submit">Poster le commentaire</button>';
-                        echo'</div> ';   
-                    echo'</form>';
-                 }
-                ?>
+                <?php if($_SESSION["login"] == "True"): ?>
+                    <form action="../../Publication/save_comment.php" method="post">
+                        <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
+                        <textarea name="message" placeholder="Entrez votre commentaire ici"></textarea>
+                        <div class="buttons">
+                            <button type="submit">Poster le commentaire</button>
+                        </div>
+                    </form>
+                <?php endif; ?>
             </div>
         <?php endforeach; ?>
     </div>

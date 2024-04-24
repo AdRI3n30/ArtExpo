@@ -41,6 +41,8 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    position: relative; /* Ajoute une position relative pour positionner la section commentaire */
+    transition: margin-bottom 0.3s ease; /* Ajoute une transition pour une animation fluide */
 }
 
 .text2 h1 {
@@ -81,6 +83,32 @@
     position: relative;
 }
 
+.comments-container {
+    width: 100%;
+    height: auto;
+    display: none; /* Pour masquer initialement la section commentaire */
+    position: absolute;
+    top: 90%; /* Positionne la section commentaire en dessous du cadre */
+    left: 0;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%); /* Cache initialement la section commentaire en la déplaçant en dessous */
+}
+
+.text2.open-comments {
+    margin-bottom: 15rem; /* Décale les autres cadres vers le bas lorsque la section commentaire est ouverte */
+}
+
+@media (max-width: 768px) {
+    .comments-container {
+        width: 90%; /* ajuste la largeur pour les appareils de petite taille */
+        right: 5%; /* aligne à droite avec un décalage de 5% */
+        transform: translate(0, -50%);
+    }
+}
+
 .buttons {
     position: relative;
     display: flex;
@@ -93,6 +121,7 @@
 
 .buttons button {
     margin-top: 10px;
+    margin-right: -5px; /* Ajoute une marge entre les boutons */
     padding: 10px 20px;
     background-color: #f154ff;
     color: white;

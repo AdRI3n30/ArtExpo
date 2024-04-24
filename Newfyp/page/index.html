@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/main.css" />
+    <script src="../js/Newfyp.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -34,20 +35,36 @@
                 <p>cc c lucas celfqsfsffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffsqfsqib et cherche amour svp </p>
             </div>  
             <div class="buttons">
-                <button>Button 1</button>
-                <button>Button 2</button>
+                <button>Like</button>
+                <button onclick="toggleComments('commentsContainer1')">Commentaires</button>
             </div>
-        </div>
-        <div id="glassmorph" class="text2">
-            <div><h1>Lucas S</h1></div>
-            <div class="content"> 
-                <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/pp.png" alt=""></a></div>
-            </div>          
-            <p>cc c lucas celib et cherche amour svp </p>
-            <div class="buttons">
-                <button>Button 1</button>
-                <button>Button 2</button>
+            <div id="commentsContainer1" class="comments-container">
+                <!-- Contenu des commentaires -->
+                <p>Commentaire 1</p>
+                <p>Commentaire 2</p>
+                <!-- etc. -->
+            </div>  
             </div>
+
+
+            <div id="glassmorph" class="text2">
+                <div><h1>Titre créer par Lucas S</h1></div>
+                <div class="content"> 
+                    <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/pp.png" alt=""></a></div>
+                </div>
+                <div class="bubble">        
+                    <p>cc c lucas celfqsfsffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffsqfsqib et cherche amour svp </p>
+                </div>  
+                <div class="buttons">
+                    <button>Like</button>
+                    <button onclick="toggleComments('commentsContainer1')">Commentaires</button>
+                </div>
+                <div id="commentsContainer1" class="comments-container">
+                    <!-- Contenu des commentaires -->
+                    <p>Commentaire 1</p>
+                    <p>Commentaire 2</p>
+                    <!-- etc. -->
+                </div>  
         </div>
     </div>
 </body>

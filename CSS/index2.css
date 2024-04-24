@@ -1,0 +1,166 @@
+.text h1 {
+    margin: 20px 0px 20px 0px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 50px;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ab6da6;
+    text-shadow: 1px 4px 0px #A3A3A3;
+}
+
+.text p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 50px;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ab6da6;
+    text-shadow: 0px 0.9px 0px #A3A3A3;
+}
+
+.secondband {
+    background: #272727;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.text2 {
+    width: 70%;
+    height: auto;
+    padding: 1em;
+    margin-top: 2rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.text2 h1 {
+    margin: 20px 0px 20px 0px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #f154ff;
+    text-shadow: 1px 1px 3px #000000;
+}
+
+.bubble {
+    margin-bottom: 2rem;
+    position: relative;
+    width: auto;
+    margin-top: 2rem;
+    min-width: 70%; /* Taille minimale de la bulle */
+    max-width: 70%; /* Taille maximale de la bulle */
+    height: auto;
+    border-radius: 20px;
+    background-color: #eaeaea;
+    padding: 10px;
+    overflow: hidden; /* Empêche le dépassement du contenu */
+    word-wrap: break-word; /* Permet le retour à la ligne dans le texte long */
+    margin-bottom: 20px; /* Ajoute une marge basse pour la séparation */
+}
+
+.text2 p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 30px;
+    margin-top: 1rem;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    position: relative;
+}
+
+.buttons {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* Ajout de marges pour l'espacement entre les boutons et le cadre */
+    right: 1rem;
+    bottom: 1rem    ;
+    position: absolute;
+}
+
+.buttons button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f154ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #ab6da6;
+}
+
+.buttons2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px; /* Ajout de marges pour l'espacement entre les boutons et le cadre */
+    right: 1rem;
+    bottom: 1rem    ;
+    position: absolute;
+}
+
+.buttons2 button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f154ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons2 button:hover {
+    background-color: #ab6da6;
+}
+
+
+.content {
+    display: flex;
+}
+
+.logo2 img {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%; 
+    border-radius: 10%;
+    object-fit: cover;
+}
+
+.logo2 {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100%; /* Ajustez la hauteur du cadre selon vos besoins */
+
+}
+
+
+body, h1, p, div, img {
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal */
+.container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    flex-direction: column; /* Pour aligner les cadres verticalement */
+    position: relative;
+}

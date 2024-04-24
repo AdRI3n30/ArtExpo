@@ -36,7 +36,6 @@
     <div class="fond"></div>
     <div class="container">
         <div class="content" id="glassmorph">
-            <h1>Pseudo</h1>
             <div class="information">
                 <?php
             // Vérifier si l'utilisateur est connecté
@@ -78,19 +77,29 @@
                     $email = $row['email'];
                     $profile_image = $row['profil_image'];
                     if (!empty($profile_image)) {
+                        echo "<div class=\"CoteGauche\">";
                         echo "<div class=\"ProfilPhoto\">";
                         echo "<img id=\"ProfilPhoto\" src=\"/Inscription/" . trim($profile_image) . "\" alt=\"Photo de profil\">";
                         echo "</div>";
+                        echo "</div>";
                     }
                     echo "<div class=\"info\">";
-                    echo "<h2>Nom Utilisateur</h2>";
-                    echo "<p>$username</p>";
-                    echo "<h2>Prénom </h2>";
+                    echo "<div class=\"boxinfo\">";
+                    echo "<p id=\"txtinfo\">Prénom </p>";
                     echo "<p>$firstname</p>";
-                    echo "<h2>Nom </h2>";
+                    echo "</div>";
+                    echo "<div class=\"boxinfo\">";
+                    echo "<p id=\"txtinfo\">Nom </p>";   
                     echo "<p>$lasttname</p>";
-                    echo "<h2>Mail</h2>";
+                    echo "</div>";
+                    echo "<div class=\"boxinfo\">";
+                    echo "<p id=\"txtinfo\">Pseudo</p>";
+                    echo "<p>$username</p>";
+                    echo "</div>";
+                    echo "<div class=\"boxinfo\">";
+                    echo "<p id=\"txtinfo\">Mail</p>";
                     echo "<p>$email</p>";
+                    echo "</div>";
                     echo "</div>";
                 } else {
                     // Aucune information trouvée pour cet ID d'utilisateur

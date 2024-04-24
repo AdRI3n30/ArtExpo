@@ -37,9 +37,12 @@
     height: auto;
     padding: 1em;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     align-items: center;
     display: flex;
     flex-direction: column;
+    position: relative; /* Ajoute une position relative pour positionner la section commentaire */
+    transition: margin-bottom 0.3s ease; /* Ajoute une transition pour une animation fluide */
 }
 
 .text2 h1 {
@@ -50,6 +53,7 @@
     color: #f154ff;
     text-shadow: 1px 1px 3px #000000;
 }
+
 
 .bubble {
     margin-bottom: 2rem;
@@ -80,18 +84,41 @@
     position: relative;
 }
 
+.comments-container {
+    width: 100%;
+    height: auto;
+    display: none; /* Pour masquer initialement la section commentaire */
+    position: relative;
+    left: 0;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.text2.open-comments {
+    margin-bottom: 15rem; /* Décale les autres cadres vers le bas lorsque la section commentaire est ouverte */
+}
+
+@media (max-width: 768px) {
+    .comments-container {
+        width: 90%; /* ajuste la largeur pour les appareils de petite taille */
+        right: 5%; /* aligne à droite avec un décalage de 5% */
+        transform: translate(0, -50%);
+    }
+}
+
 .buttons {
     position: relative;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 10px; /* Ajout de marges pour l'espacement entre les boutons et le cadre */
-    right: 1rem;
-    bottom: 1rem    ;
-    position: absolute;
+    flex-direction: column; /* Ajout de marges pour l'espacement entre les boutons et le cadre */
+    margin-bottom: 1rem;
+    margin-left: 71rem;
 }
 
 .buttons button {
     margin-top: 10px;
+    margin-right: -5px; /* Ajoute une marge entre les boutons */
     padding: 10px 20px;
     background-color: #f154ff;
     color: white;
@@ -104,18 +131,17 @@
     background-color: #ab6da6;
 }
 
+
 .buttons2 {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 100px; /* Ajout de marges pour l'espacement entre les boutons et le cadre */
-    right: 1rem;
-    bottom: 1rem    ;
-    position: absolute;
+    flex-direction: column; /* Ajout de marges pour l'espacement entre les boutons et le cadre */
+    margin-bottom: 1rem;
+    margin-left: 75rem;
+    margin-top: -3rem;
 }
 
 .buttons2 button {
     margin-top: 10px;
+    margin-right: -5px; /* Ajoute une marge entre les boutons */
     padding: 10px 20px;
     background-color: #f154ff;
     color: white;
@@ -125,6 +151,32 @@
 }
 
 .buttons2 button:hover {
+    background-color: #ab6da6;
+}
+
+
+.buttons3 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px; /* Ajout de marges pour l'espacement entre les boutons et le cadre */
+    right: 1rem;
+    bottom: 1rem    ;
+    position: absolute;
+}
+
+.buttons3 button {
+    margin-top: 10px;
+    margin-right: -5px; /* Ajoute une marge entre les boutons */
+    padding: 10px 20px;
+    background-color: #f154ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons3 button:hover {
     background-color: #ab6da6;
 }
 
@@ -163,4 +215,9 @@ body, h1, p, div, img {
     align-items: center; /* Centre verticalement */
     flex-direction: column; /* Pour aligner les cadres verticalement */
     position: relative;
+}
+
+
+.commentaire-text{
+    margin: 0.5rem;
 }

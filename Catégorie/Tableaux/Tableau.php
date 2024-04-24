@@ -70,7 +70,7 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
     </div>
     <div class="container">
     <?php foreach($posts_by_category['Tableaux'] ?? [] as $post): ?>
-            <div id="glassmorph" class="text2">
+        <div id="glassmorph" class="text2">
                 <div><h1><?php echo $post['titre']; ?></h1></div>
                 <!-- Afficher l'image de la publication -->
                 <?php if(!empty($post['image_path'])): ?>
@@ -94,44 +94,49 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
                     </form>
                 <?php endif; ?>
                 <!-- Afficher les commentaires -->
-                <h3>Commentaires :</h3>
-                <?php
-                // Requête SQL pour récupérer les commentaires associés à cette publication
-                $comment_sql = "SELECT comments.*, users.username AS comment_username
-                                FROM comments 
-                                JOIN users ON comments.user_id = users.id
-                                WHERE comments.post_id = ?";
-                $comment_stmt = $mysqli->prepare($comment_sql);
-                if(!$comment_stmt) {
-                    die("Erreur de préparation de la requête: " . $mysqli->error);
-                }
-                $post_id = $post['id']; // L'ID de la publication actuelle
-                $comment_stmt->bind_param("i", $post_id);
-                $comment_stmt->execute();
-                $comment_result = $comment_stmt->get_result();
-
-                // Afficher les commentaires s'il y en a
-                if ($comment_result->num_rows > 0) {
-                    while ($comment_row = $comment_result->fetch_assoc()) {
-                        echo "<p><strong>{$comment_row['comment_username']}</strong>: {$comment_row['message']}</p>";
+                <div class="buttons">
+                    <button class="comment-button">Commentaires</button>
+                </div>
+                <div class="comments-container">
+                    <?php
+                    // Requête SQL pour récupérer les commentaires associés à cette publication
+                    $comment_sql = "SELECT comments.*, users.username AS comment_username
+                                    FROM comments 
+                                    JOIN users ON comments.user_id = users.id
+                                    WHERE comments.post_id = ?";
+                    $comment_stmt = $mysqli->prepare($comment_sql);
+                    if(!$comment_stmt) {
+                        die("Erreur de préparation de la requête: " . $mysqli->error);
                     }
-                } else {
-                    echo "<p>Aucun commentaire pour cette publication.</p>";
-                }
+                    $post_id = $post['id']; // L'ID de la publication actuelle
+                    $comment_stmt->bind_param("i", $post_id);
+                    $comment_stmt->execute();
+                    $comment_result = $comment_stmt->get_result();
 
-                // Libérer la mémoire utilisée par le résultat des commentaires
-                $comment_result->free();
-                ?>
-                <?php if($_SESSION["login"] == "True"): ?>
-                    <form action="../../Publication/save_comment.php" method="post">
-                        <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
-                        <textarea name="message" placeholder="Entrez votre commentaire ici"></textarea>
-                        <div class="buttons">
-                            <button type="submit">Poster le commentaire</button>
-                        </div>
-                    </form>
-                <?php endif; ?>
+                    // Afficher les commentaires s'il y en a
+                    if ($comment_result->num_rows > 0) {
+                        while ($comment_row = $comment_result->fetch_assoc()) {
+                            echo "<p class=\"commentaire-text\">{$comment_row['comment_username']}: {$comment_row['message']}</p>";
+                        }
+                    } else {
+                        echo "<p>Aucun commentaire pour cette publication.</p>";
+                    }
+
+                    // Libérer la mémoire utilisée par le résultat des commentaires
+                    $comment_result->free();
+                    ?>
+                    <?php if($_SESSION["login"] == "True"): ?>
+                        <form action="../../Publication/save_comment.php" method="post">
+                            <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
+                            <textarea name="message" placeholder="Entrez votre commentaire ici"></textarea>
+                            <div class="buttons3">
+                                <button type="submit">Poster le commentaire</button>
+                            </div>
+                        </form>
+                    <?php endif; ?>
+                </div>    
             </div>
         <?php endforeach; ?>
     </div>
+    <script src="../../JS/Newfyp.js"></script>
 </body>

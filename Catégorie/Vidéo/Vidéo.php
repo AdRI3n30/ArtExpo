@@ -6,99 +6,134 @@ require_once '../../Publication/database.php';
 session_start();
 
 // Vérification si l'utilisateur est connecté
-if(isset($_SESSION['user_id'])) {
-    // Requête SQL pour récupérer les publications avec la catégorie et le pseudo de l'utilisateur qui les a créées
-    $sql = "SELECT posts.*, users.username, categories.name
-            FROM posts 
-            JOIN users ON posts.user_id = users.id
-            JOIN categories ON posts.category_id = categories.id
-            ORDER BY posts.created_at DESC";
-    $result = $mysqli->query($sql);
 
-    // Vérifier si la requête a réussi
-    if ($result) {
-        // Initialisation d'un tableau pour stocker les publications par catégorie
-        $posts_by_category = [];
+// Requête SQL pour récupérer les publications avec la catégorie et le pseudo de l'utilisateur qui les a créées
+$sql = "SELECT posts.*, users.username, categories.name,  posts.titre
+        FROM posts 
+        JOIN users ON posts.user_id = users.id
+        JOIN categories ON posts.category_id = categories.id
+        ORDER BY posts.created_at DESC";
+$result = $mysqli->query($sql);
 
-        // Parcours des résultats et stockage des publications dans le tableau par catégorie
-        while ($row = $result->fetch_assoc()) {
-            $category_name = $row['name'];
-            $posts_by_category[$category_name][] = $row;
-        }
+// Vérifier si la requête a réussi
+if ($result) {
+    // Initialisation d'un tableau pour stocker les publications par catégorie
+    $posts_by_category = [];
 
-        // Libération de la mémoire utilisée par le résultat
-        $result->free();
-    } else {
-        // Gestion des erreurs de requête
-        echo "Erreur de requête : " . $mysqli->error;
+    // Parcours des résultats et stockage des publications dans le tableau par catégorie
+    while ($row = $result->fetch_assoc()) {
+        $category_name = $row['name'];
+        $posts_by_category[$category_name][] = $row;
     }
 
-    // Vérification si $_SESSION['is_admin'] est défini
-    $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
+    // Libération de la mémoire utilisée par le résultat
+    $result->free();
+} else {
+    // Gestion des erreurs de requête
+    echo "Erreur de requête : " . $mysqli->error;
 }
+
+// Vérification si $_SESSION['is_admin'] est défini
+$is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
 ?>
 
+
 <!-- Affichage des publications par catégorie -->
-<header class="header">
-    <div class="overlap-3">
-        <a href="/"><button class="butlogo"> <img class="logo" src="/img/LOGO PAPILLON.webp" /> </button></a>
+<head>
+    <link rel="stylesheet" href="../../css/header.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/index2.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="HeaderHaut">
+        <div class="logo" id="logo"><a href="/"><img src="../../img/Logonobg.png" alt=""></a></div>
+        <div class="navbar">
+            <a href="/">Accueil</a>
+            <a href="/Catégorie/Contact/Contact.php">Contact</a>
+            <?php
+                if ($_SESSION["login"] == "false") {
+                    echo '<a href="/connexion/connexion.php">Connexion</a>';
+                } else {
+                    echo '<a href="/Publication/index.php">Post</a>';
+                    echo '<a href="/Profil/Profil.php">Profil</a>';
+                }
+            ?>
+        </div>
     </div>
-    <p class="titre">Vidéo</p> 
-</header> 
-<div class="videopage">
+    <div class="HeaderBas">
+    <a href="/Catégorie/Musique/Music.php">Musique</a>
+        <a href="/Catégorie/Théâtre/Théâtre.php">Théatre</a>
+        <a href="/Catégorie/Vidéo/Vidéo.php">Vidéo</a>
+        <a href="/Catégorie/Photos/Photo.php">Photo</a>
+        <a href="/Catégorie/Tableaux/Tableau.php">Tableau</a>
+    </div>
+    <div class="container">
     <?php foreach($posts_by_category['Vidéo'] ?? [] as $post): ?>
-    <div class="video">
-        <!-- Afficher le contenu de la publication -->
-        <h2><?php echo $post['content']; ?></h2>
-        <?php if(!empty($post['image_path'])): ?>
-            <!-- Afficher l'image de la publication -->
-            <?php $image_url = "http://artexpo/Publication/" . $post['image_path']; ?>
-            <img src="<?php echo $image_url; ?>" alt="Image">
-        <?php endif; ?>
-         <!-- Afficher le nombre de likes et le formulaire de like seulement si l'utilisateur est connecté -->
-         <?php if(isset($_SESSION['user_id'])): ?>
-            <p>Nombre de likes : <?php echo isset($post['likes']) ? $post['likes'] : 0; ?></p>
-            <form action="../../Publication/like_post.php" method="post">
-                <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
-                <button type="submit" name="like">Like</button>
-            </form>
-         <?php endif; ?>
-        <!-- Afficher les commentaires -->
-        <h3>Commentaires :</h3>
-        <?php
-        // Requête SQL pour récupérer les commentaires associés à cette publication
-        $comment_sql = "SELECT comments.*, users.username AS comment_username
-                        FROM comments 
-                        JOIN users ON comments.user_id = users.id
-                        WHERE comments.post_id = ?";
-        $comment_stmt = $mysqli->prepare($comment_sql);
-        if(!$comment_stmt) {
-            die("Erreur de préparation de la requête: " . $mysqli->error);
-        }
-        $post_id = $post['id']; // L'ID de la publication actuelle
-        $comment_stmt->bind_param("i", $post_id);
-        $comment_stmt->execute();
-        $comment_result = $comment_stmt->get_result();
+            <div id="glassmorph" class="text2">
+                <div><h1><?php echo $post['titre']; ?></h1></div>
+                <!-- Afficher l'image de la publication -->
+                <?php if(!empty($post['image_path'])): ?>
+                    <!-- Construire l'URL complète de l'image -->
+                    <?php $image_url = "http://artexpo/Publication/" . $post['image_path']; ?>
+                    <div class="content"> 
+                        <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="<?php echo $image_url; ?>" alt="Image"></a></div>
+                    </div>
+                <?php endif; ?>
+                <!-- Afficher le titre de la publication -->
+                <div class="bubble">        
+                    <p><?php echo $post['content']; ?></p>
+                </div>  
+                <p>Nombre de likes : <?php echo isset($post['likes']) ? $post['likes'] : 0; ?></p> 
+                <?php if ($_SESSION["login"] == "True") {
+                    echo'<form action="../../Publication/like_post.php" method="post">';
+                        echo'<input type="hidden" name="post_id" value="<?php echo $post[\'id\']; ?>">';
+                        echo'<div class="buttons2">';
+                            echo'<button type="submit" name="like">Like</button>';
+                        echo'</div>';
+                    echo'</form>';
+                }
+                 ?>
+                <!-- Afficher les commentaires -->
+                <h3>Commentaires :</h3>
+                <?php
+                // Requête SQL pour récupérer les commentaires associés à cette publication
+                $comment_sql = "SELECT comments.*, users.username AS comment_username
+                                FROM comments 
+                                JOIN users ON comments.user_id = users.id
+                                WHERE comments.post_id = ?";
+                $comment_stmt = $mysqli->prepare($comment_sql);
+                if(!$comment_stmt) {
+                    die("Erreur de préparation de la requête: " . $mysqli->error);
+                }
+                $post_id = $post['id']; // L'ID de la publication actuelle
+                $comment_stmt->bind_param("i", $post_id);
+                $comment_stmt->execute();
+                $comment_result = $comment_stmt->get_result();
 
-        // Afficher les commentaires s'il y en a
-        if ($comment_result->num_rows > 0) {
-            while ($comment_row = $comment_result->fetch_assoc()) {
-                echo "<p><strong>{$comment_row['comment_username']}</strong>: {$comment_row['message']}</p>";
-            }
-        } else {
-            echo "<p>Aucun commentaire pour cette publication.</p>";
-        }
+                // Afficher les commentaires s'il y en a
+                if ($comment_result->num_rows > 0) {
+                    while ($comment_row = $comment_result->fetch_assoc()) {
+                        echo "<p><strong>{$comment_row['comment_username']}</strong>: {$comment_row['message']}</p>";
+                    }
+                } else {
+                    echo "<p>Aucun commentaire pour cette publication.</p>";
+                }
 
-        // Libérer la mémoire utilisée par le résultat des commentaires
-        $comment_result->free();
-        ?>
-        <?php if(isset($_SESSION['user_id'])): ?>
-            <form action="../../Publication/save_comment.php" method="post">
-                <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
-                <textarea name="message" placeholder="Entrez votre commentaire ici"></textarea>
-                <button type="submit">Poster le commentaire</button>
-            </form>
-         <?php endif; ?>
+                // Libérer la mémoire utilisée par le résultat des commentaires
+                $comment_result->free();
+                ?>
+                <?php if($_SESSION["login"] == "True"){
+                    echo'<form action="../../Publication/save_comment.php" method="post">';
+                        echo'<input type="hidden" name="post_id" value="<?php echo $post[\'id\']; ?>">';
+                        echo'<textarea name="message" placeholder="Entrez votre commentaire ici"></textarea>';
+                        echo'<div class="buttons">';
+                            echo'<button type="submit">Poster le commentaire</button>';
+                        echo'</div> ';   
+                    echo'</form>';
+                 }
+                ?>
+            </div>
+        <?php endforeach; ?>
     </div>
-    <?php endforeach; ?>
-</div>
+</body>

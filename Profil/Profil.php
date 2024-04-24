@@ -21,6 +21,7 @@
         <div class="navbar">
             <a href="/">Accueil</a>
             <a href="/Catégorie/Contact/Contact.php">Contact</a>
+            <a href="/Publication/index.php">Post</a>
             <a href="/Profil/Profil.php">Profil</a>
         </div>
         </div>
@@ -37,9 +38,6 @@
         <div class="content" id="glassmorph">
             <h1>Pseudo</h1>
             <div class="information">
-                <div class="ProfilPhoto">
-                    <img id="ProfilPhoto" src="../../img/rick.png" alt="">
-                </div>
                 <?php
             // Vérifier si l'utilisateur est connecté
             session_start();
@@ -79,6 +77,11 @@
                     $lasttname = $row['lastname'];
                     $email = $row['email'];
                     $profile_image = $row['profil_image'];
+                    if (!empty($profile_image)) {
+                        echo "<div class=\"ProfilPhoto\">";
+                        echo "<img id=\"ProfilPhoto\" src=\"/Inscription/" . trim($profile_image) . "\" alt=\"Photo de profil\">";
+                        echo "</div>";
+                    }
                     echo "<div class=\"info\">";
                     echo "<h2>Nom Utilisateur</h2>";
                     echo "<p>$username</p>";

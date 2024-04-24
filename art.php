@@ -26,6 +26,7 @@
                 if ($_SESSION["login"] == "false") {
                     echo '<a href="/connexion/connexion.php">Connexion</a>';
                 } else {
+                    echo '<a href="/Publication/index.php">Post</a>';
                     echo '<a href="/Profil/Profil.php">Profil</a>';
                 }
             ?>

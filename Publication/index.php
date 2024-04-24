@@ -23,6 +23,7 @@
         <div class="navbar">
             <a href="/">Accueil</a>
             <a href="/Catégorie/Contact/Contact.php">Contact</a>
+            <a href="/Publication/index.php">Post</a>
             <a href="/Profil/Profil.php">Profil</a>
         </div>
         </div>
@@ -36,9 +37,11 @@
     </header>
     <div class="fond"></div>
     <div class="container">
-        <h2>Publier quelque chose</h2>
+        <h2>Montre nous ton talent</h2>
         <form action="process_post.php" method="post" enctype="multipart/form-data">
+            <label for="Titre">Titre :</label>
             <input type="text" name="title" placeholder="Titre de la publication" required><br>
+            <label for="Description">Description :</label>
             <textarea name="content" placeholder="Saisissez votre publication ici" required></textarea>
             <input type="file" name="image">
             <label for="category">Catégorie :</label>

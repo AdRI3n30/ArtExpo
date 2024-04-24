@@ -55,11 +55,12 @@ section {
 }
 
 .slider-wrapper {
-    max-width: 800px; 
+    max-width: 600px; 
     margin: 0 auto; 
     overflow: hidden; 
-    border: 2px solid #ccc;
+    border: 2px solid #b112fa;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.445); /* Fond blanc opaque */
   }
   
   .slider {
@@ -83,11 +84,20 @@ section {
     display: block;
     width: 10px; 
     height: 10px; 
-    background-color: #888; 
+    background-color: #4d4d4d; 
     margin: 0 5px; 
     border-radius: 50%;
   }
   
-  .slider-nav a.active {
-    background-color: #333;
+  .slider-nav a:hover {
+    background-color: #fff;
   }
+
+  .content {
+    display: flex;
+    justify-content: space-between; /* Pour aligner le contenu à gauche et à droite */
+    align-items: center; /* Pour aligner le contenu verticalement */
+    flex-direction: row-reverse; /* Pour inverser l'ordre des éléments enfants */
+}
+
+

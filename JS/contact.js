@@ -3,15 +3,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll(".slider-nav a");
 
     let currentSlide = 0;
-    const intervalTime = 5000; // Temps en millisecondes entre chaque changement de diapositive
+    let totalDuration = slides.length * intervalTime; // Durée totale pour afficher tous les slides
+
+    // Calculer la durée moyenne pour chaque slide
+    let averageDuration = totalDuration / slides.length;
 
     // Fonction pour afficher la diapositive actuelle
     function showSlide(index) {
         slides.forEach((slide, i) => {
             if (i === index) {
-                slide.style.display = "block";
+                slide.classList.add("active");
             } else {
-                slide.style.display = "none";
+                slide.classList.remove("active");
             }
         });
     }
@@ -26,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Démarrez le défilement automatique
-    const slideInterval = setInterval(nextSlide, intervalTime);
+    let slideInterval = setInterval(nextSlide, averageDuration);
 
     // Arrêtez le défilement automatique lorsque vous survolez le carrousel
     document.querySelector('.slider-wrapper').addEventListener('mouseenter', () => {
@@ -35,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Reprenez le défilement automatique lorsque vous quittez le carrousel
     document.querySelector('.slider-wrapper').addEventListener('mouseleave', () => {
-        slideInterval = setInterval(nextSlide, intervalTime);
+        slideInterval = setInterval(nextSlide, averageDuration);
     });
 
     // Fonction pour gérer le clic sur un lien de navigation

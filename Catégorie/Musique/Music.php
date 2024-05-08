@@ -74,12 +74,12 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
         <div id="glassmorph" class="text2">
                 <div><h1><?php echo $post['titre']; ?></h1></div>
                 <!-- Afficher l'image de la publication -->
-                <?php if(!empty($post['image_path'])): ?>
-                    <!-- Construire l'URL complète de l'image -->
-                    <?php $image_url = "http://artexpo/Publication/" . $post['image_path']; ?>
-                    <div class="content"> 
-                        <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="<?php echo $image_url; ?>" alt="Image"></a></div>
-                    </div>
+                <?php if (!empty($post['music_path'])): ?>
+                    <!-- Afficher le lecteur audio si un fichier musical est disponible -->
+                    <?php $music_url = "http://artexpo/Publication/" . $post['music_path']; ?>
+                    <audio controls>
+                        <source src="<?php echo $music_url; ?>" type="audio/mpeg">
+                    </audio>
                 <?php endif; ?>
                 <!-- Afficher le titre de la publication -->
                 <div class="bubble">        

@@ -13,7 +13,6 @@ if ($_SESSION["login"] == "false") {
 <html>
 <head>
     <title>ArtExpo - CréationPost</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
@@ -55,12 +54,8 @@ if ($_SESSION["login"] == "false") {
             <input type="text" name="title" placeholder="Titre de la publication" required><br>
             <label for="Description">Description :</label>
             <textarea name="content" placeholder="Saisissez votre publication ici" required></textarea>
-            <label for="image">Image :</label>
-            <input type="file" name="image">
-            <label for="video">Vidéo :</label>
-            <input type="file" name="video"><br>
-            <label for="category">Catégorie :</label>
-            <select name="category" id="category">
+            <select name="category" id="category" onchange="showInput()">
+                <option value="">Veuillez choisir votre catégorie</option>
                 <?php
                 // Inclure le fichier de connexion à la base de données
                 require_once 'database.php';
@@ -71,12 +66,63 @@ if ($_SESSION["login"] == "false") {
 
                 // Parcourir les résultats et afficher les options de la liste déroulante
                 while ($row = $result->fetch_assoc()) {
-                    echo "<option value='{$row['id']}'>{$row['name']}</option>";
+                    echo "<option value='{$row['id']}' data-type='{$row['name']}'>{$row['name']}</option>";
                 }
                 ?>
             </select><br>
+            <div id="image-input" style="display:none;">
+                <label for="image">Image :</label>
+                <input type="file" name="image">
+            </div>    
+            <div id="music-input" style="display:none;">
+                <label for="music">Musique :</label>
+                <input type="file" name="music" accept="audio/*"><br>
+            </div>
+            <div id="video-input" style="display:none;">
+                <label for="video">Vidéo :</label>
+                <input type="file" name="video" accept="video/*"><br>
+            </div><br>
             <input type="submit" name="submit" value="Publier"><br>
         </form>
-    </div>    
+    </div> 
+    <script>
+            function showInput() {
+            console.log("showInput() called");
+
+            var select = document.getElementById("category");
+            var selectedOption = select.options[select.selectedIndex];
+            var categoryName = selectedOption.getAttribute("data-type");
+
+            console.log("Selected category name:", categoryName);
+
+            var musicInput = document.getElementById("music-input");
+            var videoInput = document.getElementById("video-input");
+            var imageInput = document.getElementById("image-input");
+
+            console.log("Music input:", musicInput);
+            console.log("Video input:", videoInput);
+
+            if (categoryName === "Musique") {
+                musicInput.style.display = "block";
+                videoInput.style.display = "none";
+                imageInput.style.display = "none";
+            } else if (categoryName === "Vidéo" || categoryName === "Théâtre" ) {
+                videoInput.style.display = "block";
+                musicInput.style.display = "none";
+                imageInput.style.display = "none";
+            }else if (categoryName === "Tableaux" || categoryName === "Photos"  ) {
+                imageInput.style.display = "block";
+                videoInput.style.display = "none";
+                musicInput.style.display = "none";
+            } else {
+                videoInput.style.display = "none";
+                musicInput.style.display = "none";
+                imageInput.style.display = "none";
+            }
+            // Ajoutez d'autres conditions pour d'autres types de catégories si nécessaire
+        }
+
+
+    </script>   
 </body>
 </html>

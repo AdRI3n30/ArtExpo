@@ -74,11 +74,14 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
         <div id="glassmorph" class="text2">
                 <div><h1><?php echo $post['titre']; ?></h1></div>
                 <!-- Afficher l'image de la publication -->
-                <?php if(!empty($post['image_path'])): ?>
+                <?php if(!empty($post['video_path'])): ?>
                     <!-- Construire l'URL complète de l'image -->
-                    <?php $image_url = "http://artexpo/Publication/" . $post['image_path']; ?>
+                    <?php $video_url = "http://artexpo/Publication/" . $post['video_path']; ?>
                     <div class="content"> 
-                        <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="<?php echo $image_url; ?>" alt="Image"></a></div>
+                        <div class="video-container">
+                        <video controls>
+                            <source src="<?php echo $video_url; ?>" type="video/mp4"></div>
+                        </video>
                     </div>
                 <?php endif; ?>
                 <!-- Afficher le titre de la publication -->

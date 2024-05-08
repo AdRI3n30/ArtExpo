@@ -202,6 +202,22 @@
 
 }
 
+.video-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100rem; /* Réduit la largeur à 50% de la largeur de son conteneur parent */
+    padding-bottom: 28.125%; /* Ratio 16:9 pour la vidéo (56.25% de la largeur) */
+    object-fit: cover;
+  }
+  
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50rem; /* Utilise toujours toute la largeur du conteneur parent */
+    height: 100%; /* Utilise toujours toute la hauteur du conteneur parent */
+}
 
 body, h1, p, div, img {
     margin: 0;
@@ -221,3 +237,4 @@ body, h1, p, div, img {
 .commentaire-text{
     margin: 0.5rem;
 }
+

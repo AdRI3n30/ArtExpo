@@ -70,6 +70,18 @@ if(isset($_SESSION['user_id'])) {
             header("refresh:10; url=/index.php");
         }
 
+         // Traitement de la vidéo téléchargée
+        $video_path = '';
+        if(isset($_FILES['video']) && $_FILES['video']['error'] === UPLOAD_ERR_OK) {
+            $video_name = $_FILES['video']['name'];
+            $video_tmp_name = $_FILES['video']['tmp_name'];
+            $video_path = 'uploads/' . $video_name;
+            move_uploaded_file($video_tmp_name, $video_path);
+        } else {
+            echo "Erreur lors du téléchargement de la vidéo.";
+            header("refresh:10; url=/index.php");
+        }
+
         // Requête SQL pour insérer la publication dans la base de données
         $sql_insert_post = "INSERT INTO posts (user_id, titre, content, image_path, category_id) VALUES ('$user_id', '$titre', '$content', '$image_path', '$category_id')";
 

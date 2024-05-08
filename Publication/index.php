@@ -55,7 +55,10 @@ if ($_SESSION["login"] == "false") {
             <input type="text" name="title" placeholder="Titre de la publication" required><br>
             <label for="Description">Description :</label>
             <textarea name="content" placeholder="Saisissez votre publication ici" required></textarea>
+            <label for="image">Image :</label>
             <input type="file" name="image">
+            <label for="video">Vidéo :</label>
+            <input type="file" name="video"><br>
             <label for="category">Catégorie :</label>
             <select name="category" id="category">
                 <?php

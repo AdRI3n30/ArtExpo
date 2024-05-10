@@ -14,15 +14,20 @@ body{
 }
 
 .ProfilPhoto{
-    width: 50%;
-    aspect-ratio: 1;
+    width: 150px;
+height: 150px;
+    border-radius: 50%;
+    border: 2px solid rgba( 255, 255, 255, 0.18 );
+    background-color: transparent;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #ProfilPhoto{
-    max-width: 100%;
-    border-radius: 50%;
-    border: 2px solid rgba( 255, 255, 255, 0.18 );
-    aspect-ratio: 1;
+    max-width: 125%;
+    
 }
 
 .information{
@@ -30,6 +35,7 @@ body{
     flex-direction: column;
     height: 500px;
     padding: 1em;
+    gap: 1em;
     align-items: center;
 }
 

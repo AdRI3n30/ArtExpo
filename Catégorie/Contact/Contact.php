@@ -26,9 +26,15 @@
                     <?php
                     if ($_SESSION["login"] == "false") {
                         echo '<a href="/connexion/connexion.php">Connexion</a>';
-                    } else {
-                        echo'<a href="/Publication/index.php">Post</a>';
-                        echo '<a href="/Profil/Profil.php">Profil</a>';
+                    } else{
+                        if ($_SESSION["is_admin"] == 1) {
+                            echo'<a href="/Publication/index.php">Post</a>';
+                            echo '<a href="/Admin/admin-lobby.php">Admin</a>';
+                            echo '<a href="/Profil/Profil.php">Profil</a>';
+                        } else {
+                            echo'<a href="/Publication/index.php">Post</a>';
+                             echo '<a href="/Profil/Profil.php">Profil</a>';
+                            } 
                     }
                 ?>
         </div>

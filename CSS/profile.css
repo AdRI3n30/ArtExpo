@@ -82,10 +82,32 @@ height: 150px;
     box-shadow: inset rgba(255, 255, 255, 0.5) 0px 0px 15px 0px, inset rgba(60, 70, 85, 0.5) 0px 0px 15px 0px, inset rgba(0, 0, 0, 1) 0px 0px 15px -24px;
     color:white;
     font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
+    font-weight: 500;
+    font-style: normal;
+    
 }   
 
 #txtinfo{
     font-size:10px;
+}
+
+.button-modifier {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none;
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border-radius: 12px; 
+    transition-duration: 0.4s; 
+}
+
+.button-modifier:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
 }

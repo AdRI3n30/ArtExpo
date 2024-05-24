@@ -35,7 +35,14 @@ if ($_SESSION["login"] == "false") {
             <a href="/">Accueil</a>
             <a href="/Catégorie/Contact/Contact.php">Contact</a>
             <a href="/Publication/index.php">Post</a>
-            <a href="/Profil/Profil.php">Profil</a>
+            <?php
+                if ($_SESSION["is_admin"] == 1) {
+                    echo '<a href="/Admin/admin-lobby.php">Admin</a>';
+                    echo '<a href="/Profil/Profil.php">Profil</a>';
+                } else {
+                     echo '<a href="/Profil/Profil.php">Profil</a>';
+                    } 
+            ?>
         </div>
         </div>
         <div class="HeaderBas">

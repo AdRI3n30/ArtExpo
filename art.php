@@ -1,7 +1,8 @@
 <?php
   session_start();
   if (!isset($_SESSION["login"])) {
-    $_SESSION["login"] = "false"; // Initialisation de la variable de session à false
+    $_SESSION["login"] = "false";
+    $_SESSION["is_admin"] = 0; // Initialisation de la variable de session à false
 }
 
  ?> 
@@ -31,8 +32,14 @@
                 if ($_SESSION["login"] == "false") {
                     echo '<a href="/connexion/connexion.php">Connexion</a>';
                 } else {
-                    echo '<a href="/Publication/index.php">Post</a>';
-                    echo '<a href="/Profil/Profil.php">Profil</a>';
+                    if ($_SESSION["is_admin"] == 1) {
+                        echo '<a href="/Publication/index.php">Post</a>';
+                        echo '<a href="/Admin/admin-lobby.php">Admin</a>';
+                        echo '<a href="/Profil/Profil.php">Profil</a>';
+                    } else {
+                        echo '<a href="/Publication/index.php">Post</a>';
+                        echo '<a href="/Profil/Profil.php">Profil</a>'; 
+                    }
                 }
             ?>
             </div>

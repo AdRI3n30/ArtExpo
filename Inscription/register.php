@@ -42,17 +42,21 @@ if (substr_compare($email, $domainToCheck, $emailLength - $domainLength, $domain
         echo "NON" . "<br>";
     }     
 
-    // Insérer les données dans la base de données
-    $sql = "INSERT INTO users (firstname, lastname, username, email, password, profil_image) 
-            VALUES ('$lastname', '$firstname', '$username', '$email', '$password', ' $image_path')";
+        // Préparation de la requête avec une déclaration préparée
+    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, username, email, password, profil_image) 
+    VALUES (?, ?, ?, ?, ?, ?)");
 
-    if ($conn->query($sql) === TRUE) {
-        $_SESSION["user_id"] = $conn->insert_id; // Récupérer l'ID de l'utilisateur inséré
-        $_SESSION["login"] = "True";
-        // Rediriger vers une autre page après 2 secondes
-        header("refresh:1; url=/");
+    // Liaison des valeurs aux paramètres de la déclaration préparée
+    $stmt->bind_param("ssssss", $lastname, $firstname, $username, $email, $password, $image_path);
+
+    // Exécution de la requête
+    if ($stmt->execute()) {
+    $_SESSION["user_id"] = $conn->insert_id; // Récupérer l'ID de l'utilisateur inséré
+    $_SESSION["login"] = "True";
+    // Rediriger vers une autre page après 2 secondes
+    header("refresh:1; url=/");
     } else {
-        echo "Erreur: " . $sql . "<br>" . $conn->error;
+    echo "Erreur: " . $stmt->error;
     }
 }
 

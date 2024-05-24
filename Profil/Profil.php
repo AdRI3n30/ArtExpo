@@ -124,7 +124,7 @@ if ($_SESSION["login"] == "false") {
                 echo "Veuillez vous connecter pour afficher votre profil.";
             }
             ?>
-                <a href="../Deconnexion.php"><button class="button-64" role="button"><span class="text">Deconnexion</span></button></a>
+                <a href="../Deconnexion/Deconnexion.php"><button class="button-64" role="button"><span class="text">Deconnexion</span></button></a>
             </div>
             
         </div>

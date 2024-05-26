@@ -1,23 +1,32 @@
 <?php
 session_start();
-
-// Vérification des droits d'administration
-if ($_SESSION["is_admin"] != 1 || $_SESSION["login"] == "false") {
-    // Redirection vers une autre page ou affichage d'un message d'erreur
-    header("Location: /");
-    exit;
+// Vérifier si l'utilisateur est connecté
+if ($_SESSION["login"] == "false") {
+    header("Location: /"); // Rediriger vers la page principale
+    exit; // Arrêter l'exécution du script après la redirection
 }
 
-// Traitement pour récupérer la liste des utilisateurs depuis la base de données
-$users = []; // Initialisation du tableau des utilisateurs
+// Fonction pour rechercher un utilisateur par son ID
+function searchUserById($conn, $userId) {
+    $sql = "SELECT id, firstname, lastname, username, email, is_admin FROM users WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-// Remplacez les valeurs de connexion à la base de données par les vôtres
+    if ($result->num_rows > 0) {
+        return $result->fetch_assoc();
+    } else {
+        return false;
+    }
+}
+
+// Connexion à la base de données
 $servername = "localhost";
 $username_mysql = "root"; // Nom d'utilisateur MySQL
 $password_mysql = ""; // Mot de passe MySQL
 $dbname = "artexpo";
 
-// Connexion à la base de données
 $conn = new mysqli($servername, $username_mysql, $password_mysql, $dbname);
 
 // Vérifier la connexion
@@ -25,13 +34,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Requête SQL pour récupérer la liste des utilisateurs
-$sql = "SELECT id, username, email FROM users";
+// Initialiser la variable pour stocker les informations de l'utilisateur trouvé
+$foundUser = null;
+
+// Vérifier si une recherche par ID a été soumise
+if (isset($_GET['search_id'])) {
+    $searchId = $_GET['search_id'];
+    // Rechercher l'utilisateur par ID
+    $foundUser = searchUserById($conn, $searchId);
+}
+
+// Requête SQL pour récupérer tous les utilisateurs
+$sql = "SELECT id, firstname, lastname, username, email, is_admin FROM users";
 $result = $conn->query($sql);
 
-// Vérifier s'il y a des résultats
+// Récupère les utilisateurs
+$users = [];
 if ($result->num_rows > 0) {
-    // Parcourir les résultats et les stocker dans le tableau des utilisateurs
     while ($row = $result->fetch_assoc()) {
         $users[] = $row;
     }
@@ -49,6 +68,7 @@ $conn->close();
     <title>Gestion des utilisateurs - Admin</title>
     <link rel="stylesheet" href="/CSS/main.css">
     <link rel="stylesheet" href="/CSS/header.css">
+    <link rel="stylesheet" href="/CSS/admin.css">
     <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
 </head>
 <body>
@@ -73,33 +93,71 @@ $conn->close();
     </header>
 
     <div class="container">
-        <h2>Gestion des utilisateurs</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($users as $user) : ?>
+        <h2>Gestion des utilisateurs</h2><br>
+        <form method="GET" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="search_id">Rechercher par ID :</label>
+            <input type="text" id="search_id" name="search_id" placeholder="Entrez l'ID de l'utilisateur">
+            <button type="submit">Rechercher</button><br>
+        </form>
+          <!-- Affichage des résultats de la recherche -->
+          <?php if ($foundUser) : ?>
+            <h2>Résultat de la recherche :</h2>
+            <table class="table">
+                <thead>
                     <tr>
-                        <td><?php echo $user['id']; ?></td>
-                        <td><?php echo $user['username']; ?></td>
-                        <td><?php echo $user['email']; ?></td>
-                        <td>
-                            <!-- Bouton de suppression -->
-                            <form method="post" action="supprimer-utilisateur.php">
-                                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                <button type="submit">Supprimer</button>
-                            </form>
-                        </td>
+                        <th>ID</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Pseudo</th>
+                        <th>Email</th>
+                        <th>Admin</th>
+                        <th>Action</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?php echo $foundUser['id']; ?></td>
+                        <td><?php echo $foundUser['firstname']; ?></td>
+                        <td><?php echo $foundUser['lastname']; ?></td>
+                        <td><?php echo $foundUser['username']; ?></td>
+                        <td><?php echo $foundUser['email']; ?></td>
+                        <td><?php echo $foundUser['is_admin']; ?></td>
+                        <!-- Bouton Supprimer -->
+                        <td><?php echo '<a href="supprimer-utilisateur.php?id=' . $foundUser["id"] . '">Supprimer</a>'; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Admin</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($users as $user) : ?>
+                        <tr>
+                            <td><?php echo $user['id']; ?></td>
+                            <td><?php echo $user['firstname']; ?></td>
+                            <td><?php echo $user['lastname']; ?></td>
+                            <td><?php echo $user['username']; ?></td>
+                            <td><?php echo $user['email']; ?></td>
+                            <td><?php echo $user['is_admin'];?></td>
+                            <?php
+                            echo '<td><a href="supprimer-utilisateur.php?id=' . htmlspecialchars($user['id']) . '">Supprimer</a></td>';
+                            ?>
+                            
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            <a href="/Admin/admin-lobby.php" class="retour">Retour au profil</a>
+        <?php endif; ?>    
+     </div>   
 </body>
 </html>

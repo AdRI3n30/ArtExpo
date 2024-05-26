@@ -1,0 +1,49 @@
+/* Style pour le body et le conteneur principal */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60rem;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Style pour les titres */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style pour les boutons */
+button {
+    background-color: #4CAF50; /* Vert */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    transition-duration: 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Centrer le contenu */
+.text-center {
+    text-align: center;
+}

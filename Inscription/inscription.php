@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/CSS/inscription.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
+        <script src="../JS/popup.js"></script>
         <title>ArtExpo - Inscription</title>
     </head>
     <body>
@@ -57,5 +58,8 @@
                 </div>
             </form>
         </div> 
+    <div id="popup" style="display: none;">
+        <p>L'adresse e-mail est déjà associée à un compte. Veuillez en choisir une autre.</p>
+    </div>
     </body>
 </html>

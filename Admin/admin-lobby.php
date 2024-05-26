@@ -18,6 +18,7 @@ if ($_SESSION["login"] == "false" || $_SESSION["is_admin"] != 1) {
     <link rel="stylesheet" href="/CSS/header.css" />
     <link rel="stylesheet" href="/CSS/index.css">
     <link rel="stylesheet" href="/CSS/main.css">
+    <link rel="stylesheet" href="/CSS/admin-lobby.css">
     <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
     <script src="/JS/contact.js"></script>
 </head>
@@ -46,15 +47,14 @@ if ($_SESSION["login"] == "false" || $_SESSION["is_admin"] != 1) {
         <a href="/Catégorie/Tableaux/Tableau.php">Tableau</a>
     </div>
 </header>
-<?php
-    // Afficher les boutons d'administration si l'utilisateur est un administrateur
-    if ($_SESSION["is_admin"] == 1) {
-        echo '<div class="admin-buttons">';
-        echo '<a href="/Admin/gestion-utilisateurs.php" class="admin-button">Gérer les utilisateurs</a>';
-        echo '<a href="/Admin/gestion-posts.php" class="admin-button">Gérer les posts</a>';
-        echo '<a href="/Admin/gestion-commentaires.php" class="admin-button">Gérer les commentaires</a>';
-        echo '</div>';
-    }
-    ?>
+    <div class="container">
+            <h1>Admin Lobby</h1>
+            <div class="buttons">
+                <a href="gestion-utilisateurs.php"><button>Gérer les utilisateurs</button></a>
+                <a href="gestion-posts.php"><button>Gérer les posts</button></a>
+                <a href="gestion-commentaires.php"><button>Gérer les commentaires</button></a>
+            </div>
+            <a href="/Profil/Profil.php">Retour au profil</a>
+        </div>
 </body>
 </html>        

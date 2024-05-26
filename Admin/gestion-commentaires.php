@@ -34,6 +34,7 @@ $result = $conn->query($sql);
     <title>Gestion des Commentaires - ArtExpo</title>
     <link rel="stylesheet" href="/CSS/header.css" />
     <link rel="stylesheet" href="/CSS/main.css">
+    <link rel="stylesheet" href="/CSS/admin.css">
     <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
 </head>
 <body>
@@ -64,25 +65,29 @@ $result = $conn->query($sql);
 
     <div class="container">
         <h1>Gestion des Commentaires</h1>
-        <div class="comments-list">
-            <?php
-            if ($result->num_rows > 0) {
-                // Afficher les commentaires et options de gestion
-                while($row = $result->fetch_assoc()) {
-                    echo "<div class='comment'>";
-                    echo "<p><strong>Commentaire par:</strong> " . $row["user_id"] . "</p>";
-                    echo "<p><strong>Date:</strong> " . $row["created_at"] . "</p>";
-                    echo "<p><strong>Contenu:</strong> " . $row["comment_content"] . "</p>";
-                    // Ajouter des boutons pour gérer les commentaires (suppression, édition, etc.)
-                    echo "<button onclick='deleteComment(" . $row["id"] . ")'>Supprimer</button>";
-                    // Autres options de gestion ici
-                    echo "</div>";
-                }
-            } else {
-                echo "Aucun commentaire trouvé.";
-            }
-            ?>
-        </div>
+        <?php if ($result->num_rows > 0): ?>
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Post ID</th>
+                    <th>Content</th>
+                    <th>Actions</th>
+                </tr>
+                <?php while($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo $row["id"]; ?></td>
+                    <td><?php echo $row["post_id"]; ?></td>
+                    <td><?php echo $row["message"]; ?></td>
+                    <?php
+                         echo '<td><a href="supprimer-commentaire.php?id=' . htmlspecialchars($row['id']) . '">Supprimer</a></td>';
+                    ?>
+                </tr>
+                <?php endwhile; ?>
+            </table>
+        <?php else: ?>
+            <p class="message">No comments found.</p>
+        <?php endif; ?>
+        <a href="/Admin/admin-lobby.php" class="retour">Retour au profil</a>
     </div>
 
     <script>

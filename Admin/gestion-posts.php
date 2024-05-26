@@ -49,6 +49,7 @@ $conn->close();
     <title>Gestion des publications - Admin</title>
     <link rel="stylesheet" href="/CSS/main.css">
     <link rel="stylesheet" href="/CSS/header.css">
+    <link rel="stylesheet" href="/CSS/admin.css">
     <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
 </head>
 <body>
@@ -74,34 +75,35 @@ $conn->close();
 
     <div class="container">
         <h2>Gestion des publications</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Titre</th>
-                    <th>Contenu</th>
-                    <th>Auteur</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($posts as $post) : ?>
+        <?php if ($result->num_rows > 0): ?>
+            <table class="table">
+                <thead>
                     <tr>
-                        <td><?php echo $post['id']; ?></td>
-                        <td><?php echo $post['titre']; ?></td>
-                        <td><?php echo $post['content']; ?></td>
-                        <td><?php echo $post['user_id']; ?></td>
-                        <td>
-                            <!-- Bouton de suppression -->
-                            <form method="post" action="supprimer-post.php">
-                                <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
-                                <button type="submit">Supprimer</button>
-                            </form>
-                        </td>
+                        <th>ID</th>
+                        <th>Titre</th>
+                        <th>Contenu</th>
+                        <th>Auteur</th>
+                        <th>Actions</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($posts as $post) : ?>
+                        <tr>
+                            <td><?php echo $post['id']; ?></td>
+                            <td><?php echo $post['titre']; ?></td>
+                            <td><?php echo $post['content']; ?></td>
+                            <td><?php echo $post['user_id']; ?></td>
+                            <?php
+                                echo '<td><a href="supprimer-post.php?id=' . htmlspecialchars($post['id']) . '">Supprimer</a></td>';
+                            ?>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+        <p class="message">No posts found.</p> 
+        <?php endif; ?>  
+        <a href="/Admin/admin-lobby.php" class="retour">Retour au profil</a> 
     </div>
 </body>
 </html>

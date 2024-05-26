@@ -76,6 +76,9 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
         <a href="/Catégorie/Tableaux/Tableau.php">Tableau</a>
     </div>
     <div class="container">
+    <?php if (empty($posts_by_category['Théâtre'])) : ?> 
+        <p class='no-posts-message'>Aucun post trouvé.</p>
+    <?php else: ?>
     <?php foreach($posts_by_category['Théâtre'] ?? [] as $post): ?>
         <div id="glassmorph" class="text2">
                 <div><h1><?php echo $post['titre']; ?></h1></div>
@@ -147,6 +150,7 @@ $is_admin = isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : false;
                 </div>    
             </div>
         <?php endforeach; ?>
+    <?php endif; ?>
     </div>
     <script src="../../JS/Newfyp.js"></script>
 </body>

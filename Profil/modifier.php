@@ -106,6 +106,7 @@ $conn->close();
     <title>ArtExpo - Modifier <?php echo $fieldName; ?></title>
     <link rel="stylesheet" href="/CSS/main.css">
     <link rel="stylesheet" href="/CSS/header.css">
+    <link rel="stylesheet" href="/CSS/modifier.css">
     <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
 </head>
 <body>

@@ -21,10 +21,21 @@ $domainToCheck = "@ynov.com";
 $emailLength = strlen($email);
 $domainLength = strlen($domainToCheck);
 
+// Vérifier si l'email est déjà utilisé
+$stmt_check_email = $conn->prepare("SELECT email FROM users WHERE email = ?");
+$stmt_check_email->bind_param("s", $email);
+$stmt_check_email->execute();
+$stmt_check_email->store_result();
+
+
 // Utilisation de substr_compare pour comparer la fin de la chaîne
 if (substr_compare($email, $domainToCheck, $emailLength - $domainLength, $domainLength) !== 0) {
     echo "Erreur : L'adresse email doit se terminer par @ynov.com";
-} else {
+    header("refresh:5; url=/inscription/inscription.php");
+} else if($stmt_check_email->num_rows > 0){
+    echo "Erreur : Cette adresse e-mail est déjà associée à un compte.";
+    header("refresh:5; url=/inscription/inscription.php");
+}else {
     // Récupérer les données du formulaire
     $lastname = $_POST['lastname'];
     $firstname = $_POST['firstname'];
@@ -37,14 +48,14 @@ if (substr_compare($email, $domainToCheck, $emailLength - $domainLength, $domain
         $image_name = $_FILES['profile_image']['name'];
         $image_tmp_name = $_FILES['profile_image']['tmp_name'];
         $image_path = "imgProfil/" .$image_name;
-        move_uploaded_file($image_tmp_name, $image_path);
-    }else{
-        echo "NON" . "<br>";
-    }     
-
+        if (move_uploaded_file($image_tmp_name, $image_path)) {
+        } else {
+            echo "Erreur lors du téléchargement du fichier.";
+        }
+    }
         // Préparation de la requête avec une déclaration préparée
-    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, username, email, password, profil_image) 
-    VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, username, email, password, profil_image,is_admin) 
+    VALUES (?, ?, ?, ?, ?, ?, 0)");
 
     // Liaison des valeurs aux paramètres de la déclaration préparée
     $stmt->bind_param("ssssss", $lastname, $firstname, $username, $email, $password, $image_path);

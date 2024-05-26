@@ -88,9 +88,9 @@ $conn->close();
                 <?php foreach ($posts as $post) : ?>
                     <tr>
                         <td><?php echo $post['id']; ?></td>
-                        <td><?php echo $post['title']; ?></td>
+                        <td><?php echo $post['titre']; ?></td>
                         <td><?php echo $post['content']; ?></td>
-                        <td><?php echo $post['author_id']; ?></td>
+                        <td><?php echo $post['user_id']; ?></td>
                         <td>
                             <!-- Bouton de suppression -->
                             <form method="post" action="supprimer-post.php">

@@ -29,6 +29,7 @@ if (isset($_POST['make_admin'])) {
     <link rel="icon" type="image/x-icon" href="../../img/Logonobg.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kanit&family=Lato:ital,wght@1,100&family=Madimi+One&family=Playfair+Display:ital,wght@1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -109,22 +110,22 @@ if (isset($_POST['make_admin'])) {
                         echo "<div class=\"boxinfo\">";
                         echo "<p id=\"txtinfo\">Prénom </p>";
                         echo "<p>$firstname</p>";
-                        echo "<a href=\"modifier.php?field=firstname\"><button class=\"button-modifier\">Modifier</button></a>";
+                        echo "<a href=\"modifier.php?field=firstname\" id=\"modif\" ><span class=\"material-symbols-outlined\">Edit</span></a>";
                         echo "</div>";
                         echo "<div class=\"boxinfo\">";
                         echo "<p id=\"txtinfo\">Nom </p>";
                         echo "<p>$lastname</p>";
-                        echo "<a href=\"modifier.php?field=lastname\"><button class=\"button-modifier\">Modifier</button></a>";
+                        echo "<a href=\"modifier.php?field=lastname\" id=\"modif\" ><span class=\"material-symbols-outlined\">Edit</span></a>";
                         echo "</div>";
                         echo "<div class=\"boxinfo\">";
                         echo "<p id=\"txtinfo\">Pseudo</p>";
                         echo "<p>$username</p>";
-                        echo "<a href=\"modifier.php?field=username\"><button class=\"button-modifier\">Modifier</button></a>";
+                        echo "<a href=\"modifier.php?field=username\" id=\"modif\" ><span class=\"material-symbols-outlined\">Edit</span></a>";
                         echo "</div>";
                         echo "<div class=\"boxinfo\">";
                         echo "<p id=\"txtinfo\">Mail</p>";
                         echo "<p>$email</p>";
-                        echo "<a href=\"modifier.php?field=email\"><button class=\"button-modifier\">Modifier</button></a>";
+                        echo "<a href=\"modifier.php?field=email\" id=\"modif\" ><span class=\"material-symbols-outlined\">Edit</span></a>";
                         echo "</div>";
                         echo "</div>";
                     } else {

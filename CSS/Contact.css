@@ -42,7 +42,7 @@ section {
 
 
 .mail{
-    color: white;
+    color: black;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 1.25rem;
@@ -99,5 +99,3 @@ section {
     align-items: center; /* Pour aligner le contenu verticalement */
     flex-direction: row-reverse; /* Pour inverser l'ordre des éléments enfants */
 }
-
-

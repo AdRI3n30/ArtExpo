@@ -84,30 +84,33 @@ height: 150px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
-    
+    display: flex  ;
+    flex-direction: column;
+    position: relative;
 }   
+
+
 
 #txtinfo{
     font-size:10px;
 }
 
-.button-modifier {
-    background-color: #4CAF50; 
-    color: white; 
-    border: none;
-    padding: 10px 20px; 
-    text-align: center; 
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px; 
-    margin: 4px 2px; 
-    cursor: pointer; 
-    border-radius: 12px; 
-    transition-duration: 0.4s; 
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  color: white;
 }
 
-.button-modifier:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50;
+.material-symbols-outlined:hover{
+    color: grey     ;
+}
+
+#modif{
+    position: absolute;
+    right: 5px;
+    top: 25%
 }

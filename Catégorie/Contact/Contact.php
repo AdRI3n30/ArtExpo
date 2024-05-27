@@ -78,15 +78,6 @@
                     <p class="mail" id="slide-6">Adrien.boree@ynov.com<br>Developper du projet ArtExpo</p>
                 </div> 
             </div>
-            <div class="slider-nav">
-                <a href="#slide-1"></a>
-                <a href="#slide-2"></a>
-                <a href="#slide-3"></a>
-                <a href="#slide-4"></a>
-                <a href="#slide-5"></a>
-                <a href="#slide-6"></a>
-                
-            </div>
         </div>
     </section>
     <script src="../../JS/contact.js"></script>

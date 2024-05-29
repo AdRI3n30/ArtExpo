@@ -68,23 +68,26 @@
                     <div><h1>La Création d'Adam (Michel-Ange)</h1></div>
                     <div class="content"> 
                         <div class="logo2" id="logo"><img src="../../img/adam.jpg" alt=""></div>
-                    
+                    <div class="text-content">
                     <p>
                     Peintes par Michel-Ange sur la partie centrale de la voûte du plafond de la chapelle Sixtine, dans les musées du Vatican à Rome, commandée par le pape Jules II.
                     </p>
+                    </div>
                 </div>
                 
                     
                 </div>
                 <div id="glassmorph" class="text2">
                     <div>
-                        <h1>Lucas S</h1>
+                        <h1>La nuit étoilée par (Van Gogh)</h1>
                     </div>
                     <div class="content">
-                        <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/pp.png" alt=""></a></div>
+                        <div class="logo2" id="logo"><a href="../../Profil/Profil.php"><img src="../../img/Starry_night.jpg" alt=""></a></div>
+                    <div class="text-content">
                     <p>
-                        cc c lucas celib et cherche amour svp 
+                    Cette œuvre peinte en 1889 est considérée comme l'une des meilleures oeuvres de Van Gogh et l'une des œuvres les plus importantes de la peinture occidentale. 
                     </p>
+                    </div>
                     </div>
                 </div>        
             </div>

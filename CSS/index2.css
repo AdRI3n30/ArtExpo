@@ -109,11 +109,7 @@
 }
 
 .buttons {
-    position: relative;
-    display: flex;
-    flex-direction: column; /* Ajout de marges pour l'espacement entre les boutons et le cadre */
     margin-bottom: 1rem;
-    margin-left: 71rem;
 }
 
 .buttons button {
@@ -134,9 +130,7 @@
 
 .buttons2 {
     flex-direction: column; /* Ajout de marges pour l'espacement entre les boutons et le cadre */
-    margin-bottom: 1rem;
-    margin-left: 75rem;
-    margin-top: -3rem;
+
 }
 
 .buttons2 button {

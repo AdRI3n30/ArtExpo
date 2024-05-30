@@ -78,8 +78,14 @@
 
 .text2{
     width: 40%;
+    height: 20em;
     padding: 1em;
+    overflow: scroll;
 }
+
+.text2::-webkit-scrollbar {
+    display: none;
+  }
 
 .text2 h1{
     margin: 20px 0px 20px 0px;

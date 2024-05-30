@@ -87,7 +87,7 @@ if(isset($_SESSION['user_id'])) {
 
 
         // Requête SQL pour insérer la publication dans la base de données
-        $sql_insert_post = "INSERT INTO posts (user_id, titre, content, image_path, video_path,music_path, category_id) VALUES ('$user_id', '$titre', '$content', '$image_path', '$video_path','$music_path' , '$category_id')";
+        $sql_insert_post = "INSERT INTO posts (username, titre, content, image_path, video_path,music_path, category_id) VALUES ('$user_id', '$titre', '$content', '$image_path', '$video_path','$music_path' , '$category_id')";
 
         // Exécution de la requête
         if(!$mysqli->query($sql_insert_post)) {

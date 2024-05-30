@@ -37,6 +37,7 @@ if ($result->num_rows > 0) {
     }
 }
 
+
 // Fermer la connexion à la base de données
 $conn->close();
 ?>

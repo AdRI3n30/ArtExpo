@@ -51,7 +51,8 @@ section {
 }
 
 .mail:hover{
-    color: #7a3ff1;
+    color: #ffff;
+    cursor: pointer;
 }
 
 .slider-wrapper {
@@ -60,7 +61,7 @@ section {
     overflow: hidden; 
     border: 2px solid #b112fa;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.445); /* Fond blanc opaque */
+    background-color: rgb(109, 46, 145); /* Fond blanc opaque */
   }
   
   .slider {

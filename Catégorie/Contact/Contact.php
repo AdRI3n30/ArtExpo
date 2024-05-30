@@ -59,23 +59,11 @@
         <div class="slider-wrapper">
             <div class="slider">
                 <div class="slide-1">
-                    <p class="mail" id="slide-1">Oceane.miessam@ynov.com <br> Chef du projet ArtExpo
+                    <p class="mail" id="slide-1">oceane.miessan@ynov.com <br> Chef du projet ArtExpo
                     </p>
                 </div>
                 <div class="slide-2">
-                    <p class="mail" id="slide-2">Ludivine.miessam@ynov.com<br> Chef du projet ArtExpo</p>
-                </div> 
-                <div class="slide-3">
-                    <p class="mail" id="slide-3">Yanis.saoudi@ynov.com <br>Designer du projet ArtExpo</p>
-                </div> 
-                <div class="slide-4">
-                    <p class="mail" id="slide-4">Along.licakis@ynov.com <br>Developper du projet ArtExpo</p>
-                </div>  
-                <div class="slide-5">
-                    <p class="mail" id="slide-5">Tom.Balluri@ynov.com <br>Developper du projet ArtExpo</p>
-                </div>
-                <div class="slide-6">
-                    <p class="mail" id="slide-6">Adrien.boree@ynov.com<br>Developper du projet ArtExpo</p>
+                    <p class="mail" id="slide-2">divine.miessan@ynov.com<br> Chef du projet ArtExpo</p>
                 </div> 
             </div>
         </div>

@@ -3,10 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll(".slider-nav a");
 
     let currentSlide = 0;
-    let totalDuration = slides.length * intervalTime; // Durée totale pour afficher tous les slides
 
     // Calculer la durée moyenne pour chaque slide
-    let averageDuration = totalDuration / slides.length;
 
     // Fonction pour afficher la diapositive actuelle
     function showSlide(index) {
